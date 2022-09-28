@@ -1,36 +1,166 @@
 <!-- ============================================================== -->
 <!-- sidebar -->
 <!-- ============================================================== -->
- <div class="user-profile" style="background: url(assets/images/background/user-info.jpg) no-repeat;">
+<div class="user-profile" style="background: url(assets/images/background/user-info.jpg) no-repeat;">
+
     <!-- User profile image -->
     <div class="profile-img"> <img src="assets/images/users/profile.png" alt="user"> </div>
     <!-- User profile text-->
     <!-- ============================================================== -->
     <!-- Profile - style you can find in header.scss -->
     <!-- ============================================================== -->
-    <div class="profile-text"><a [matMenuTriggerFor]="sdprofile" class=""> Markarn Doe <i class="ti-angle-down font-12 m-l-5"></i></a></div>
+
+<div class="profile-text"><a [matMenuTriggerFor]="sdprofile" class=""> Markarn Doe <i
+                class="ti-angle-down font-12 m-l-5"></i></a></div>
     <mat-menu #sdprofile="matMenu" class="mymegamenu">
         <button mat-menu-item>
-            <mat-icon>settings</mat-icon> Settings </button>
+            <mat-icon>settings</mat-icon> Settings
+        </button>
         <button mat-menu-item>
-            <mat-icon>account_box</mat-icon> Profile </button>
+            <mat-icon>account_box</mat-icon> Profile
+        </button>
         <button mat-menu-item>
-            <mat-icon>notifications_off</mat-icon> Disable notifications </button>
+            <mat-icon>notifications_off</mat-icon> Disable notifications
+        </button>
         <button mat-menu-item>
-            <mat-icon>exit_to_app</mat-icon> Sign Out </button>
+            <mat-icon>exit_to_app</mat-icon> Sign Out
+        </button>
     </mat-menu>
-    
-</div>
-<mat-nav-list appAccordion>
-    <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuitem()" routerLinkActive="selected" group="{{menuitem.state}}">
-        <a class="" appAccordionToggle [routerLink]="['/', menuitem.state]" *ngIf="menuitem.type === 'link'">
-            <mat-icon>{{ menuitem.icon }}</mat-icon> 
-            <span>{{ menuitem.name }}</span> 
-            <span fxFlex></span> 
-            <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span> 
-        </a>
 
+</div>
+<!-- <mat-nav-list appAccordion>
+    <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuitem()" routerLinkActive="selected"
+        group="{{menuitem.state}}">
+        <a class="" appAccordionToggle [routerLink]="['/', menuitem.state]" *ngIf="menuitem.type === 'link'">
+            <mat-icon>{{ menuitem.icon }}</mat-icon>
+            <span>{{ menuitem.name }}</span>
+            <span fxFlex></span>
+            <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
+        </a>
+    </mat-list-item>
+</mat-nav-list> -->
+<mat-nav-list appAccordion>
+    <mat-list-item>
+        <a routerLink="/dashboard">Dashboard</a>
+    </mat-list-item>
+    <mat-list-item>
+        <a routerLink="/button">Outils material</a>
+    </mat-list-item>
+    <mat-list-item>
+        <a routerLink="/utiles">Informations utiles</a>
+    </mat-list-item>
+    <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="shadow-none">
+            <mat-expansion-panel-header>
+                <mat-panel-title style="color: #73868f;">
+                    Accueil
+                </mat-panel-title>
+            </mat-expansion-panel-header>
         
+            <div class="liCss">
+                <li class="mb-2"><a routerLink="/zone1">Zone annonceurs sliders</a></li>
+                <li class="mb-2"><a routerLink="/zone2">Zone annonceurs bannières</a></li>
+                <li class="mb-2"><a routerLink="/zone3">Zone accroches</a></li>
+                <li class="mb-2"><a routerLink="/zone4">Zone produits à la Une</a></li>
+                <li class="mb-2"><a routerLink="/zone6">Zone messages</a></li>
+                <li class="mb-2"><a routerLink="/bannersCategory">Bannières par catégories</a></li>
+                <li><a routerLink="/bannersGen">Bannières géneriques</a></li>
+            </div>
+
+        </mat-expansion-panel>
+    </mat-accordion>
+    <mat-list-item>
+        <a routerLink="/pages">Pages du site</a>
+    </mat-list-item>
+    <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="shadow-none">
+            <mat-expansion-panel-header>
+                <mat-panel-title style="color: #73868f;">
+                    Magasin
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div class="liCss">
+                <li class="mb-2"><a routerLink="/offres">Offres</a></li>
+                <li><a routerLink="/bannersSite">Bannières</a></li>
+            </div>
+
+        </mat-expansion-panel>
+    </mat-accordion>
+    <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="shadow-none">
+            <mat-expansion-panel-header>
+                <mat-panel-title style="color: #73868f;">
+                    Newsletters
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div class="liCss">
+                <li class="mb-2"><a routerLink="/inscritsNewsletter">Accès module inscrits newsletter</a></li>
+                <li class="mb-2"><a routerLink="/newsletters">Accès module newsletter</a></li>
+                <li class="mb-2"><a routerLink="/articles">Accès articles newsletter</a></li>
+                <li><a routerLink="/send">Envoi des newsletters</a></li>
+            </div>
+
+        </mat-expansion-panel>
+    </mat-accordion>
+    <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="shadow-none">
+            <mat-expansion-panel-header>
+                <mat-panel-title style="color: #73868f;">
+                    Catalogue
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div class="liCss">
+                <li class="mb-2"><a routerLink="/categories">Categories</a></li>
+                <li class="mb-2"><a routerLink="/gammes">Gammes</a></li>
+                <li class="mb-2"><a routerLink="/produits">Produits</a></li>
+                <li><a routerLink="/commentaires">Commentaires produits</a></li>
+            </div>
+
+        </mat-expansion-panel>
+    </mat-accordion>
+    <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="shadow-none">
+            <mat-expansion-panel-header>
+                <mat-panel-title style="color: #73868f;">
+                    Clients & Commandes
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div class="liCss">
+                <li class="mb-2"><a routerLink="/clients">Clients</a></li>
+                <li><a routerLink="/commandes">Commandes</a></li>
+            </div>
+
+        </mat-expansion-panel>
+    </mat-accordion>
+    <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="shadow-none">
+            <mat-expansion-panel-header>
+                <mat-panel-title style="color: #73868f;">
+                    Actualités & Tutoriaux
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div class="liCss">
+                <li class="mb-2"><a routerLink="/catBlog">Categories news</a></li>
+                <li class="mb-2"><a routerLink="/blog">Toutes les news</a></li>
+                <li class="mb-2"><a routerLink="/catTutos">Catégories tutos</a></li>
+                <li><a routerLink="/tutos">Tous les tutos</a></li>
+            </div>
+            
+        </mat-expansion-panel>
+    </mat-accordion>
+    <mat-list-item>
+        <a routerLink="/partenaires">Partenaires</a>
+    </mat-list-item>
+    <mat-list-item>
+        <a routerLink="/membres">Membres marketplace</a>
+    </mat-list-item>
+    <mat-list-item>
+        <a routerLink="/users">Utilisateurs admin</a>
     </mat-list-item>
 
 </mat-nav-list>

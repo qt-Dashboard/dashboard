@@ -1,0 +1,104 @@
+<h3 class="inner-tittle">Modifier une bannière de catégorie</h3>
+<div class="graph-form">
+
+    <form method="post" action="" enctype="multipart/form-data">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="titre">Titre</label>
+                <input type="text" class="form-control" id="titre" name="titre" placeholder="Titre" value="" required>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="cat_id" style="float:left;width:200px!important;">Catégorie et gamme liée</label>
+                <select id="cat_id" name="cat_id">
+
+                </select>
+
+                <select id="g_id" name="g_id">
+                    <option value="">-- Selectionner une gamme --</option>
+
+
+                </select>
+
+            </div>
+
+
+
+
+            <div class="form-group">
+                <label for="lien">Lien </label>
+                <input type="text" class="form-control" id="lien" name="lien" placeholder="https://..." value="">
+
+            </div>
+
+            <h4 style="padding-top: 40px;">ORIENTATION</h4>
+            <div class="form-group">
+                <label for="orientation" style="float:left;width:200px!important;">Orientation</label>
+                <select id="orientation" name="orientation">
+
+
+                </select>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+
+
+            <div class="form-group">
+                <label for="Logo">Illustration</label>
+                <input type="file" id="Logo" name="fichier" accept="image/*">
+
+                <a href="javascript:void(0);" onclick='return false;' class="info"><img src="" alt="" width="70%"
+                        style="margin:10px 0px;" /></a>
+
+            </div>
+
+            <h4>Dates Publication</h4>
+            <div class="form-group">Date Début de publication
+                <div class='input-group date'>
+
+                    <input type='text' class="form-control" value="" id='dateDebut' name='dateDebut' />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group">Date Fin de publication
+                <div class='input-group date'>
+
+                    <input type='text' class="form-control" value="" id='dateFin' name='dateFin' />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+
+            <h4 style="padding-top: 40px;">PUBLIER</h4>
+
+
+            <div class="form-group">
+                <label for="publier" style="float:left;width:200px!important;">Publier la bannière</label>
+                <select id="publier" name="publier">
+
+
+
+                </select>
+            </div>
+
+
+
+        </div>
+        <div class="clearfix"></div>
+        <input type="hidden" name="id" value="" />
+        <input type="hidden" name="MM_update" value="form1" />
+        <button type="submit" class="btn btn-default">Valider les modifications</button>
+    </form>
+    <button routerLink="/bannersCategory" class="btn btn-warning">Retour à la liste</button>
+
+
+
+
+</div>

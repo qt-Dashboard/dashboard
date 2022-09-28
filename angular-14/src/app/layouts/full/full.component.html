@@ -10,12 +10,11 @@
         <!-- Logo - style you can find in header.scss -->
         <!-- ============================================================== -->
         <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed">
-                <mat-icon>menu</mat-icon>
-            </button>
-            <div class="navbar-header">
-            
+            <mat-icon>menu</mat-icon>
+        </button>
+        <div class="navbar-header">
             <a class="navbar-brand" href="index.html">
-                
+
                 <!-- Logo icon --><b>
                     <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                     <!-- Dark Logo icon -->
@@ -32,11 +31,12 @@
                  <img src="assets/images/logo-light-text.png" class="light-logo" alt="homepage">
                 </span> </a>
         </div>
+
         <!-- ============================================================== -->
         <!-- sidebar toggle -->
         <!-- ============================================================== -->
         
-        
+
         <span fxFlex></span>
         <!-- ============================================================== -->
         <!-- app header component - style you can find in header.scss / header.component.ts-->
@@ -67,8 +67,9 @@
                  
                 <div class="page-content">
                    
-                        <router-outlet><app-spinner></app-spinner></router-outlet>
-                    
+                        <router-outlet><app-spinner></app-spinner><!--<app-footer></app-footer> --></router-outlet>
+
+
                 </div>    
                
         </mat-sidenav-content>
@@ -76,4 +77,5 @@
         <!-- Page container - style you can find in pages.scss -->
         <!-- ============================================================== -->
     </mat-sidenav-container>
+
 </div>

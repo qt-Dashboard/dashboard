@@ -17,6 +17,9 @@ import { DemoMaterialModule } from './demo-material-module';
 
 import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FooterComponent } from './layouts/full/footer/footer.component';
+import { MatMenuModule} from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { DialogConfirmComponent } from './material-component/users/dialog-confirm/dialog-confirm.component';
@@ -35,6 +38,8 @@ import { MatTableModule } from '@angular/material/table';
     AppHeaderComponent,
     SpinnerComponent,
     AppSidebarComponent,
+    FooterComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -47,6 +52,8 @@ import { MatTableModule } from '@angular/material/table';
     HttpClientModule,
     SharedModule,
     RouterModule.forRoot(AppRoutes),
+    NgbModule,
+    MatMenuModule,
     MatDialogModule,
     MatButtonModule,
     MatSelectModule,

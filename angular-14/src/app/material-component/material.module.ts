@@ -23,10 +23,7 @@ import { ChipsComponent } from './chips/chips.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ProgressSnipperComponent } from './progress-snipper/progress-snipper.component';
 import { ProgressComponent } from './progress/progress.component';
-import {
-  DialogComponent,
-  DialogOverviewExampleDialogComponent
-} from './dialog/dialog.component';
+import { DialogComponent, DialogOverviewExampleDialogComponent } from './dialog/dialog.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
 import { SliderComponent } from './slider/slider.component';
@@ -106,10 +103,15 @@ import { MembresModifComponent } from './membres/membres-modif/membres-modif.com
 import { UsersComponent } from './users/users.component';
 import { UsersAjoutComponent } from './users/users-ajout/users-ajout.component';
 import { UsersModifComponent } from './users/users-modif/users-modif.component';
+import { DialogConfirmComponent } from './users/dialog-confirm/dialog-confirm.component';
+import { UsersFormComponent } from './users/users-form/users-form.component';
+import { UsersComponent } from './users/users.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   imports: [
     CommonModule,
+    BrowserModule,
     RouterModule.forChild(MaterialRoutes),
     DemoMaterialModule,
     HttpClientModule,
@@ -213,6 +215,9 @@ import { UsersModifComponent } from './users/users-modif/users-modif.component';
     UsersComponent,
     UsersAjoutComponent,
     UsersModifComponent
-  ]
+    DialogConfirmComponent,
+    UsersFormComponent,
+    UsersComponent
+    ]
 })
 export class MaterialComponentsModule {}

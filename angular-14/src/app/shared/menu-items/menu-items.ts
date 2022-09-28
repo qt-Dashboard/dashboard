@@ -38,10 +38,8 @@ const MENUITEMS = [
   { state: 'tutos', type: 'link', name: 'Tutoriaux', icon: ''},
   { state: 'partenaires', type: 'link', name: 'Zone partenaires', icon: ''},
   { state: 'membres', type: 'link', name: 'Zone membres', icon: ''},
-  { state: 'users', type: 'link', name: 'Zone admin', icon: ''},
 
-
-
+  { state: 'users', type: 'link', name: 'Users', icon: 'supervisor_account'}
   // { state: 'grid', type: 'link', name: 'Grid List', icon: 'view_comfy' },
   // { state: 'lists', type: 'link', name: 'Lists', icon: 'view_list' },
   // { state: 'menu', type: 'link', name: 'Menu', icon: 'view_headline' },

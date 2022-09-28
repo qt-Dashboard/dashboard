@@ -1,0 +1,32 @@
+<div class="container text-center grid">
+    <div class="col-12">
+        <h4>Liste des utilisateurs</h4>
+            <div>
+                <button mat-raised-button color="primary" routerLink="form"><mat-icon>plus_one</mat-icon></button>
+            </div>
+        <table class="table table-hover table-users">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Administrateur</th>
+                    <th>Pays</th>
+                    <th></th>
+                    <th></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td *ngIf="user.isAdmin"><mat-icon color="primary">check_circle</mat-icon></td>
+                    <td *ngIf="!user.isAdmin"><mat-icon color="warn">highlight_off</mat-icon></td>
+                    <td >{{user.country}}</td>
+                    <td (click)="updateUser(user.id)"><mat-icon color="accent">create</mat-icon></td>
+                    <td (click)="deleteUser(user.id)"><mat-icon color="warn">delete_forever</mat-icon></td>
+                </tr>
+            <tbody>
+        </table>
+    </div>
+</div>

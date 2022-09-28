@@ -105,12 +105,10 @@ import { UsersModifComponent } from './users/users-modif/users-modif.component';
 import { DialogConfirmComponent } from './users/dialog-confirm/dialog-confirm.component';
 import { UsersFormComponent } from './users/users-form/users-form.component';
 import { UsersComponent } from './users/users.component';
-import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   imports: [
     CommonModule,
-    BrowserModule,
     RouterModule.forChild(MaterialRoutes),
     DemoMaterialModule,
     HttpClientModule,

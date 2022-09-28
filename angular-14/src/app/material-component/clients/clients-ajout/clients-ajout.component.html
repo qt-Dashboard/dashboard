@@ -1,0 +1,111 @@
+<h3 class="inner-tittle">Ajouter un cient</h3>
+<div class="graph-form">
+    <h4>Un compte existe déja pour cet adresse Email</h4>
+
+    <form method="post" action="" enctype="multipart/form-data">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="nom">Nom</label>
+
+                <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" value="" required>
+            </div>
+
+            <div class="form-group">
+                <label for="prenom">Prénom</label>
+
+                <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom" value=""
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="tel">Tel</label>
+
+                <input type="tel" class="form-control" id="tel" name="tel" placeholder="Tel" value="" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+
+                <input type="password" class="form-control" id="password" name="password"
+                    placeholder="8caractères dont 1 majuscule et 1 caractère spécial min" pattern="" value="" required>
+            </div>
+
+
+            <h3>Coordonnées livraison</h3>
+            <div class="form-group">
+                <label for="adresse">Adresse</label>
+
+                <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse" value=""
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="cp">Code postal</label>
+
+                <input type="text" class="form-control" id="cp" name="cp" placeholder="Code postal" value="" required>
+            </div>
+
+            <div class="form-group">
+                <label for="ville">Ville</label>
+
+                <input type="text" class="form-control" id="ville" name="ville" placeholder="Ville" value="" required>
+            </div>
+
+            <div class="form-group">
+                <label for="pays">Pays</label>
+
+                <select name="pays" id="pays" class="" required>
+                    <option value="" selected="selected">--Selectionnez un pays--</option>
+
+                </select>
+            </div>
+            <h3>Coordonnées facturation (si différentes de celles de livraison)</h3>
+
+            <div class="form-group">
+                <label for="adresse2">Adresse</label>
+
+                <input type="text" class="form-control" id="adresse2" name="adresse2" placeholder="Adresse" value="">
+            </div>
+
+            <div class="form-group">
+                <label for="cp2">Code postal</label>
+
+                <input type="text" class="form-control" id="cp2" name="cp2" placeholder="Code postal" value="">
+            </div>
+
+            <div class="form-group">
+                <label for="ville2">Ville</label>
+
+                <input type="text" class="form-control" id="ville2" name="ville2" placeholder="Ville" value="">
+            </div>
+
+            <div class="form-group">
+                <label for="pays2">Pays</label>
+
+                <select name="pays2" id="pays2" class="">
+                    <option value="" selected="selected">--Selectionnez un pays--</option>
+
+                </select>
+            </div>
+
+
+        </div>
+        <div class="col-md-6">
+
+
+        </div>
+
+        <div class="clearfix"></div>
+        <input type="hidden" name="id" value="" />
+        <input type="hidden" name="MM_update2" value="form1" />
+        <button type="submit" class="btn btn-default">Ajouter</button>
+    </form>
+    <button routerLink="/clients" class="btn btn-warning">Retour à la liste</button>
+
+</div>

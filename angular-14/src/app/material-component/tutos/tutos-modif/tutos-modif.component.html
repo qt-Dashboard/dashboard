@@ -1,0 +1,89 @@
+<h3 class="inner-tittle">Modifier un tuto</h3>
+<div class="graph-form">
+
+    <form method="post" action="" enctype="multipart/form-data">
+
+
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <label for="titre">Titre du tutos</label>
+
+            </div>
+
+            <div class="form-group">
+                <label for="accroche">Accroche</label>
+
+            </div>
+
+            <div class="form-group">
+                <label for="texte">Texte</label>
+
+            </div>
+
+            <div class="form-group">
+                <label for="video">Lien video youtube</label>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <label for="illu1">Illustration 1</label>
+
+            </div>
+
+            <div class="form-group">
+                <label for="illu2">Illustration 2</label>
+
+            </div>
+
+            <div class="form-group">
+                <label for="illu3">Illustration 3</label>
+
+            </div>
+
+            <div class="form-group">
+                <label for="illu4">Illustration 4</label>
+
+            </div>
+
+            <div class="form-group">
+                <label for="illu5">Illustration 5</label>
+
+            </div>
+
+
+        </div>
+
+        <h4 style="padding-top: 40px;">Catégorie liée</h4>
+        <div class="form-group">
+            <label for="publier" style="float:left;width:200px!important;">Catégorie</label>
+            <select id="cat_id" name="cat_id" required>
+                <option value="">-sélectionnez une catégorie-</option>
+
+            </select>
+        </div>
+
+        <h4 style="padding-top: 40px;">PUBLIER</h4>
+
+
+        <div class="form-group">
+            <label for="publier" style="float:left;width:200px!important;">Publier le tuto</label>
+            <select id="publier" name="publier">
+
+            </select>
+        </div>
+
+
+        <div class="clearfix"></div>
+        <input type="hidden" name="id" value="" />
+        <input type="hidden" name="MM_update" value="form1" />
+        <button type="submit" class="btn btn-default">Valider les modifications</button>
+    </form>
+    <button routerLink="/tutos" class="btn btn-warning">Retour à la liste</button>
+
+</div>

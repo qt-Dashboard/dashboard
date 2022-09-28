@@ -1,0 +1,55 @@
+<h2 class="inner-tittle">Actualités<button routerLink="/blogAjout" class="btn btn-warning">Ajouter</button></h2>
+<div class="graph-form">
+    <div class="form-body">
+        <style>
+            thead {
+                background: #eee;
+                padding: 5px;
+            }
+
+            th,
+            td {
+                padding: 5px;
+                font-size: 13px !important;
+            }
+
+            table tr td:first-child {
+                background: #e5e5e5;
+            }
+
+            tr {
+                border-bottom: 2px solid #e5e5e5;
+            }
+
+            table tr:nth-child(odd) {
+                background-color: #f0f0f0;
+            }
+
+            table {
+                width: 100%;
+            }
+        </style>
+        <table id="myTable" class="tablesorter">
+            <thead>
+                <tr>
+                    <th style="width: 120px;"></th>
+                    <th>Nom du produit</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td><a routerLink="/blogModif">Modif.</a> | <a href="">Supp.</a></td>
+                    <td>
+
+                        <i class="fa fa-times-circle" style="color: red"></i> Non Publié
+                        <i class="fa fa-check-circle" style="color: green"></i> Publié
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

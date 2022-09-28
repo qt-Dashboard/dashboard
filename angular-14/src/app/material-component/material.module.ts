@@ -100,7 +100,6 @@ import { PartenairesModifComponent } from './partenaires/partenaires-modif/parte
 import { MembresComponent } from './membres/membres.component';
 import { MembresAjoutComponent } from './membres/membres-ajout/membres-ajout.component';
 import { MembresModifComponent } from './membres/membres-modif/membres-modif.component';
-import { UsersComponent } from './users/users.component';
 import { UsersAjoutComponent } from './users/users-ajout/users-ajout.component';
 import { UsersModifComponent } from './users/users-modif/users-modif.component';
 import { DialogConfirmComponent } from './users/dialog-confirm/dialog-confirm.component';
@@ -214,7 +213,7 @@ import { BrowserModule } from '@angular/platform-browser';
     MembresModifComponent,
     UsersComponent,
     UsersAjoutComponent,
-    UsersModifComponent
+    UsersModifComponent,
     DialogConfirmComponent,
     UsersFormComponent,
     UsersComponent

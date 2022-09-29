@@ -56,6 +56,9 @@ import { PagesComponent } from './material-component/pages/pages.component';
 import { PartenairesAjoutComponent } from './material-component/partenaires/partenaires-ajout/partenaires-ajout.component';
 import { PartenairesModifComponent } from './material-component/partenaires/partenaires-modif/partenaires-modif.component';
 import { PartenairesComponent } from './material-component/partenaires/partenaires.component';
+import { ProduitsAjoutComponent } from './material-component/produits/produits-ajout/produits-ajout.component';
+import { ProduitsModifComponent } from './material-component/produits/produits-modif/produits-modif.component';
+import { ProduitsComponent } from './material-component/produits/produits.component';
 import { ProgressSnipperComponent } from './material-component/progress-snipper/progress-snipper.component';
 import { ProgressComponent } from './material-component/progress/progress.component';
 import { SendComponent } from './material-component/send/send.component';
@@ -65,6 +68,7 @@ import { SnackbarComponent } from './material-component/snackbar/snackbar.compon
 import { StepperComponent } from './material-component/stepper/stepper.component';
 import { TabsComponent } from './material-component/tabs/tabs.component';
 import { ToolbarComponent } from './material-component/toolbar/toolbar.component';
+import { ToolsComponent } from './material-component/tools/tools.component';
 import { TutosAjoutComponent } from './material-component/tutos/tutos-ajout/tutos-ajout.component';
 import { TutosModifComponent } from './material-component/tutos/tutos-modif/tutos-modif.component';
 import { TutosComponent } from './material-component/tutos/tutos.component';
@@ -340,16 +344,16 @@ export const AppRoutes: Routes = [
         component: GammesModifComponent
       },
       {
-        path: 'gammes',
-        component: GammesComponent
+        path: 'produits',
+        component: ProduitsComponent
       },
       {
-        path: 'gammesAjout',
-        component: GammesAjoutComponent
+        path: 'produitsAjout',
+        component: ProduitsAjoutComponent
       },
       {
-        path: 'gammesModif',
-        component: GammesModifComponent
+        path: 'produitsModif',
+        component: ProduitsModifComponent
       },
       {
         path: 'commentaires',
@@ -462,8 +466,11 @@ export const AppRoutes: Routes = [
       {
       path: 'users/form/:id',
       component: UsersFormComponent
-      }
-
+      },
+      {
+        path: 'tools',
+        component: ToolsComponent
+      },
     ]
   },
   

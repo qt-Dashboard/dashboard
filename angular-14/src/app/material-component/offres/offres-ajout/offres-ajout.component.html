@@ -24,14 +24,14 @@
             <div class="form-group">
                 <label for="prix">Prix de l'offre</label>
 
-                <input type="number" class="form-control" id="prix" name="prix" placeholder="Prix en Euros" value=""
+                <input type="number" class="form-control" id="prix" name="prix" placeholder="Prix en Euros" value="" min="0"
                     required>
             </div>
 
             <div class="form-group">
                 <label for="nb_product">nombre du produit</label>
 
-                <input type="number" class="form-control" id="nb_product" name="nb_product"
+                <input type="number" class="form-control" id="nb_product" name="nb_product" min="0"
                     placeholder="Quantité du produit" value=">" required>
             </div>
 
@@ -40,7 +40,7 @@
             <div class="form-group">
                 <label for="publier" style="float:left;width:200px!important;">Publier l'offre</label>
                 <select id="publier" name="publier">
-
+                    <option value="">-- Selectionner offre --</option>
                 </select>
             </div>
 

@@ -25,11 +25,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { DialogConfirmComponent } from './material-component/users/dialog-confirm/dialog-confirm.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatOptionModule } from '@angular/material/core';
+import { DateAdapter, MatOptionModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 import { MaterialComponentsModule } from './material-component/material.module';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
 import { MatTableModule } from '@angular/material/table';
+import { MyDateAdapter, MY_FORMAT } from './material-component/tools/tools.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 
 @NgModule({
@@ -41,13 +46,12 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
     AppSidebarComponent,
     FooterComponent,
 
+
   ],
   imports: [
     BrowserModule,
-    CommonModule,
     DemoMaterialModule,
     BrowserAnimationsModule,
-    DemoMaterialModule,
     FormsModule,
     FlexLayoutModule,
     HttpClientModule,
@@ -63,13 +67,20 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
     MatCardModule,
     MaterialComponentsModule,
     NgxMaskModule.forRoot(),
-    MatTableModule
+    MatTableModule,
+    MatIconModule,
+    MatInputModule,
+    MatProgressBarModule,
+    MatToolbarModule,
   ],
   providers: [
     {
       provide: LocationStrategy,
       useClass: PathLocationStrategy
     },
+    { provide: MAT_DATE_LOCALE, useValue: "fr-FR" },
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMAT},
+    { provide: DateAdapter, useClass: MyDateAdapter},
     {
       provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
       useValue: {

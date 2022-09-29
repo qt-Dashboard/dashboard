@@ -105,6 +105,7 @@ import { UsersModifComponent } from './users/users-modif/users-modif.component';
 import { DialogConfirmComponent } from './users/dialog-confirm/dialog-confirm.component';
 import { UsersFormComponent } from './users/users-form/users-form.component';
 import { UsersComponent } from './users/users.component';
+import { ToolsComponent } from './tools/tools.component';
 
 @NgModule({
   imports: [
@@ -214,7 +215,8 @@ import { UsersComponent } from './users/users.component';
     UsersModifComponent,
     DialogConfirmComponent,
     UsersFormComponent,
-    UsersComponent
+    UsersComponent,
+    ToolsComponent
     ]
 })
 export class MaterialComponentsModule {}

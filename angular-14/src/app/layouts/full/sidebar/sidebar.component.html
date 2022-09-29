@@ -10,8 +10,8 @@
     <!-- Profile - style you can find in header.scss -->
     <!-- ============================================================== -->
 
-<div class="profile-text"><a [matMenuTriggerFor]="sdprofile" class=""> Markarn Doe <i
-                class="ti-angle-down font-12 m-l-5"></i></a></div>
+<div class="profile-text"><a [matMenuTriggerFor]="sdprofile" class=""> Markarn Doe  <i class="ti-angle-down font-12 m-l-5"></i></a></div>
+              
     <mat-menu #sdprofile="matMenu" class="mymegamenu">
         <button mat-menu-item>
             <mat-icon>settings</mat-icon> Settings
@@ -47,6 +47,9 @@
         <a routerLink="/button">Outils material</a>
     </mat-list-item>
     <mat-list-item>
+        <a routerLink="/tools">Outils formulaire</a>
+    </mat-list-item>
+    <mat-list-item>
         <a routerLink="/utiles">Informations utiles</a>
     </mat-list-item>
     <mat-accordion>
@@ -56,8 +59,9 @@
                     Accueil
                 </mat-panel-title>
             </mat-expansion-panel-header>
-        
-            <div class="liCss">
+
+           <div class="liCss">
+
                 <a routerLink="/zone1"><li class="mb-2">Zone annonceurs sliders</li></a>
                 <a routerLink="/zone2"><li class="mb-2">Zone annonceurs bannières</li></a>
                 <a routerLink="/zone3"><li class="mb-2">Zone accroches</li></a>
@@ -79,12 +83,12 @@
                     Magasin
                 </mat-panel-title>
             </mat-expansion-panel-header>
-
+            
             <div class="liCss">
                 <a routerLink="/offres"><li class="mb-2">Offres</li></a>
                 <a routerLink="/bannersSite"><li>Bannières</li></a>
             </div>
-
+            
         </mat-expansion-panel>
     </mat-accordion>
     <mat-accordion>

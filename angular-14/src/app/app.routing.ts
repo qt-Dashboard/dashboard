@@ -68,6 +68,7 @@ import { SnackbarComponent } from './material-component/snackbar/snackbar.compon
 import { StepperComponent } from './material-component/stepper/stepper.component';
 import { TabsComponent } from './material-component/tabs/tabs.component';
 import { ToolbarComponent } from './material-component/toolbar/toolbar.component';
+import { ToolsComponent } from './material-component/tools/tools.component';
 import { TutosAjoutComponent } from './material-component/tutos/tutos-ajout/tutos-ajout.component';
 import { TutosModifComponent } from './material-component/tutos/tutos-modif/tutos-modif.component';
 import { TutosComponent } from './material-component/tutos/tutos.component';
@@ -465,8 +466,11 @@ export const AppRoutes: Routes = [
       {
       path: 'users/form/:id',
       component: UsersFormComponent
-      }
-
+      },
+      {
+        path: 'tools',
+        component: ToolsComponent
+      },
     ]
   },
   

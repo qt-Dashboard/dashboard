@@ -30,6 +30,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MaterialComponentsModule } from './material-component/material.module';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
 import { MatTableModule } from '@angular/material/table';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,12 @@ import { MatTableModule } from '@angular/material/table';
     {
       provide: LocationStrategy,
       useClass: PathLocationStrategy
+    },
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+      useValue: {
+        duration: 3000
+      }
     }
   ],
   bootstrap: [AppComponent],

@@ -23,15 +23,17 @@
 
             <div class="form-group">
                 <label for="prix">Prix de l'offre</label>
-
-                <input type="number" class="form-control" id="prix" name="prix" placeholder="Prix en Euros" value=""
-                    required>
+                <div class="input-icon input-icon-right">
+                    <i>€</i>
+                    <input type="number" class="form-control" id="prix" name="prix" min="0" placeholder="Prix en Euros" value=""
+                        required>
+                </div>
             </div>
 
             <div class="form-group">
                 <label for="nb_product">nombre du produit</label>
 
-                <input type="number" class="form-control" id="nb_product" name="nb_product"
+                <input type="number" class="form-control" id="nb_product" name="nb_product" min="0" 
                     placeholder="Quantité du produit" value=">" required>
             </div>
 

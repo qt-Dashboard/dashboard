@@ -35,7 +35,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -76,13 +76,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   providers: [
     {
       provide: LocationStrategy,
-      useClass: PathLocationStrategy,
-
-    }, // Date
+      useClass: PathLocationStrategy
+    },
     { provide: MAT_DATE_LOCALE, useValue: "fr-FR" },
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMAT},
-    {provide: DateAdapter, useClass: MyDateAdapter}
-    // Date fin
+    { provide: DateAdapter, useClass: MyDateAdapter},
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+      useValue: {
+        duration: 3000
+      }
+    }
   ],
   bootstrap: [AppComponent],
   entryComponents: [

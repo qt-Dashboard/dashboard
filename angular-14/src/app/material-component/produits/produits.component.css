@@ -1,0 +1,26 @@
+thead {
+    background: #eee;
+    padding: 5px;
+}
+
+th,
+td {
+    padding: 5px;
+    font-size: 13px !important;
+}
+
+table tr td:first-child {
+    background: #e5e5e5;
+}
+
+tr {
+    border-bottom: 2px solid #e5e5e5;
+}
+
+table tr:nth-child(odd) {
+    background-color: #f0f0f0;
+}
+
+table {
+    width: 100%;
+}

@@ -106,6 +106,8 @@ import { DialogConfirmComponent } from './users/dialog-confirm/dialog-confirm.co
 import { UsersFormComponent } from './users/users-form/users-form.component';
 import { UsersComponent } from './users/users.component';
 import { ToolsComponent } from './tools/tools.component';
+import { UploadComponent } from './upload/upload.component';
+import { FileDragNDropDirective } from './upload/file-drag-n-drop.directive';
 
 @NgModule({
   imports: [
@@ -216,7 +218,9 @@ import { ToolsComponent } from './tools/tools.component';
     DialogConfirmComponent,
     UsersFormComponent,
     UsersComponent,
-    ToolsComponent
+    ToolsComponent,
+    UploadComponent,
+    FileDragNDropDirective
     ]
 })
 export class MaterialComponentsModule {}

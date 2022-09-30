@@ -22,7 +22,6 @@ import { FooterComponent } from './layouts/full/footer/footer.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { DialogConfirmComponent } from './material-component/users/dialog-confirm/dialog-confirm.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DateAdapter, MatOptionModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
@@ -36,6 +35,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -72,6 +72,7 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
     MatInputModule,
     MatProgressBarModule,
     MatToolbarModule,
+    MatSortModule
   ],
   providers: [
     {
@@ -90,7 +91,6 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-  DialogConfirmComponent
   ]
 })
 export class AppModule {}

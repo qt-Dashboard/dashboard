@@ -1,4 +1,4 @@
-mat-icon {
+.icon-link {
     cursor: pointer;
 }
 
@@ -7,3 +7,25 @@ mat-icon {
     max-width: 1000px;
     width: 100%;
 }
+
+:host ::ng-deep .mat-sort-header-container {
+    display: flex;
+    justify-content: center;
+ }
+ 
+table {
+    width: 100%;
+}
+
+.buttonAdd {
+    margin-bottom: 2rem;
+}
+
+tr:hover {
+    background-color: #d3d3d3;
+}
+
+th:hover {
+    background-color: white;
+}
+

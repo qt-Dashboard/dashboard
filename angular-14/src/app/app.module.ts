@@ -45,7 +45,7 @@ import { MatSortModule } from '@angular/material/sort';
     SpinnerComponent,
     AppSidebarComponent,
     FooterComponent,
-
+ 
 
   ],
   imports: [

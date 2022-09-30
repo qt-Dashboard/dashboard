@@ -105,6 +105,8 @@ import { UsersModifComponent } from './users/users-modif/users-modif.component';
 import { UsersFormComponent } from './users/users-form/users-form.component';
 import { UsersComponent } from './users/users.component';
 import { ToolsComponent } from './tools/tools.component';
+import { UploadComponent } from './upload/upload.component';
+import { FileDragNDropDirective } from './upload/file-drag-n-drop.directive';
 
 @NgModule({
   imports: [
@@ -213,7 +215,12 @@ import { ToolsComponent } from './tools/tools.component';
     UsersAjoutComponent,
     UsersModifComponent,
     UsersFormComponent,
+    UsersComponent,
+    ToolsComponent,
+    UploadComponent,
+    FileDragNDropDirective
     ToolsComponent
+
     ]
 })
 export class MaterialComponentsModule {}

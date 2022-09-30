@@ -8,6 +8,9 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class UsersService {
+  getData() {
+    throw new Error("Method not implemented.");
+  }
   apiURLUsers = environment.apiURL + 'users';
 
   constructor(private http: HttpClient) {}

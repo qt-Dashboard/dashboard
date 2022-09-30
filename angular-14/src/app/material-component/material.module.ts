@@ -102,7 +102,6 @@ import { MembresAjoutComponent } from './membres/membres-ajout/membres-ajout.com
 import { MembresModifComponent } from './membres/membres-modif/membres-modif.component';
 import { UsersAjoutComponent } from './users/users-ajout/users-ajout.component';
 import { UsersModifComponent } from './users/users-modif/users-modif.component';
-import { DialogConfirmComponent } from './users/dialog-confirm/dialog-confirm.component';
 import { UsersFormComponent } from './users/users-form/users-form.component';
 import { UsersComponent } from './users/users.component';
 import { ToolsComponent } from './tools/tools.component';
@@ -215,12 +214,13 @@ import { FileDragNDropDirective } from './upload/file-drag-n-drop.directive';
     UsersComponent,
     UsersAjoutComponent,
     UsersModifComponent,
-    DialogConfirmComponent,
     UsersFormComponent,
     UsersComponent,
     ToolsComponent,
     UploadComponent,
     FileDragNDropDirective
+    ToolsComponent
+
     ]
 })
 export class MaterialComponentsModule {}

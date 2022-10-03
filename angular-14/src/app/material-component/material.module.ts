@@ -107,6 +107,7 @@ import { UsersComponent } from './users/users.component';
 import { ToolsComponent } from './tools/tools.component';
 import { UploadComponent } from './upload/upload.component';
 import { FileDragNDropDirective } from './upload/file-drag-n-drop.directive';
+import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.component';
 
 @NgModule({
   imports: [
@@ -218,8 +219,9 @@ import { FileDragNDropDirective } from './upload/file-drag-n-drop.directive';
     UsersComponent,
     ToolsComponent,
     UploadComponent,
-    FileDragNDropDirective
-    ToolsComponent
+    FileDragNDropDirective,
+    ToolsComponent,
+    DialogConfirmComponent
 
     ]
 })

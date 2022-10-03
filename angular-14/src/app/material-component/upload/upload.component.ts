@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Directive, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogConfirmComponent } from '../dialog-confirm/dialog-confirm/dialog-confirm.component';
+import { DialogConfirmComponent } from '../dialog-confirm/dialog-confirm.component';
 
 @Component({
   selector: 'app-upload',
@@ -9,28 +9,27 @@ import { DialogConfirmComponent } from '../dialog-confirm/dialog-confirm/dialog-
   styleUrls: ['./upload.component.css']
 })
 
-
-export class UploadComponent implements OnInit {
-
+export class UploadComponent {
   public files: any[] = [];
 
-  constructor(private _snackBar: MatSnackBar, public dialog: MatDialog){}
+  constructor(private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
-  onFileChange(pFileList: File[]){
+  onFileChange(pFileList: File[]) {
+
     this.files = Object.keys(pFileList).map(key => pFileList[<any>key]);
     this._snackBar.open("Successfully upload!", 'Close', {
       duration: 2000,
     });
-  }
 
-  deleteFile(f:any){
-    this.files = this.files.filter(function(w){ return w.name != f.name });
+  }
+  deleteFile(f: any) {
+    this.files = this.files.filter(function (w) { return w.name != f.name });
     this._snackBar.open("Successfully delete!", 'Close', {
       duration: 2000,
     });
   }
 
-  openConfirmDialog(pIndex:any): void {
+  openConfirmDialog(pIndex: any) {
     const dialogRef = this.dialog.open(DialogConfirmComponent, {
       panelClass: 'modal-xs'
     });
@@ -45,12 +44,8 @@ export class UploadComponent implements OnInit {
     });
   }
 
-  deleteFromArray(index:any) {
+  deleteFromArray(index: any) {
     console.log(this.files);
     this.files.splice(index, 1);
   }
-
-  ngOnInit(): void {
-  }
-
 }

@@ -21,11 +21,10 @@ table {
     margin-bottom: 2rem;
 }
 
-tr:hover {
+tr:hover, .nobg:hover {
     background-color: #d3d3d3;
 }
 
 th:hover {
-    background-color: white;
+    background-color: #ffffff;
 }
-

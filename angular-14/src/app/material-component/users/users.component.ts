@@ -1,8 +1,10 @@
-import { Component, Inject, OnInit } from "@angular/core";
+import { Component, Inject, OnInit, ViewChild } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 import { UsersService } from "src/app/services/users.service";
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.component";
+import { MatSort, Sort } from "@angular/material/sort";
 
 export interface User {
   id?: string;
@@ -25,35 +27,33 @@ export interface User {
   styleUrls: ["./users.component.css"]
 })
 
-export class UsersComponent implements OnInit{
+export class UsersComponent implements OnInit {
   users: User[] = [];
-  displayedColumns: string[] = ['name', 'email', 'isAdmin', 'country', 'iconUpd', 'iconDel'];
+  displayedColumns: string[] = ['name', 'email', 'isAdmin', 'country', 'iconUpd', 'iconDel']; 
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
-
 
   constructor(
     public dialog: MatDialog,
     private snackBar: MatSnackBar,
     private usersService: UsersService,
     private router: Router,
-    private service: UsersService
-    ) {
-      this.service.getUsers().subscribe(users => {
-      this.users = users;
-        });
-  }
+    ) {}
 
+  openDialog(userId: string) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent,{
+      data:{
+        message: 'Voulez-vous supprimer cet utilisateur ?',
+        buttonText: {
+          ok: 'Supprimer',
+          cancel: 'Annuler'
+        }
+      }
+    });
 
-  
-
-    ngOnInit(): void {
-      this.getUsers();
-    }
-  
-    deleteUser(userId: string)  {
-      if (confirm(`Voulez-vous vraiment supprimer cet utilisateur ?`)) {
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+      if (confirmed) {
         this.usersService.deleteUser(userId).subscribe({
           next: () => this.getUsers()
         }),
@@ -62,19 +62,11 @@ export class UsersComponent implements OnInit{
           verticalPosition: this.verticalPosition,
         });
       }
-    // this.dialog
-    //   .open(DialogConfirmComponent, {
-    //     data: `Voulez-vous vraiment supprimer ?`,
-    //   })
-    //   .afterClosed()
-    //   this.usersService.deleteUser(userId).subscribe((confirm: Boolean) => {
-    //     if (confirm) {
-    //       this.getUsers();
-    //       this.snackBar.open("Vous avez bien supprimé l'utilisateur", 'Retour', {
-    //         horizontalPosition: this.horizontalPosition,
-    //         verticalPosition: this.verticalPosition,
-    //       });
-    //   }});
+    });
+  }
+
+  ngOnInit(): void {
+    this.getUsers();
   }
 
   updateUser(userid: string) {
@@ -86,4 +78,32 @@ export class UsersComponent implements OnInit{
       this.users = users;
     });
   }
+
+  sortData(sort: Sort) {
+    const data = this.users.slice();
+    if (!sort.active || sort.direction === '') {
+      this.users = data;
+      return;
+    }
+
+    this.users = data.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'name':
+          return compare(a.name?.toLowerCase(), b.name?.toLowerCase(), isAsc);
+        case 'email':
+          return compare(a.email?.toLowerCase(), b.email?.toLowerCase(), isAsc);
+        case 'isAdmin':
+          return compare(a.isAdmin, b.isAdmin, isAsc);
+        case 'country':
+          return compare(a.country?.toLowerCase(), b.country?.toLowerCase(), isAsc);
+        default:
+          return 0;
+      }
+    });
+  }
+}
+
+function compare(a: any | string, b: any | string, isAsc: boolean) {
+  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

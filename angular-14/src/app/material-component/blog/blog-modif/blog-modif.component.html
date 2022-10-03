@@ -1,0 +1,108 @@
+<h3 class="inner-tittle">Modifier une actualité</h3>
+<div class="graph-form">
+
+    <form method="post" action="" enctype="multipart/form-data">
+
+
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <label for="titre">Titre de l'actualité</label>
+                <input type="text" class="form-control" id="titre" name="titre" placeholder="titre" value="" required>
+            </div>
+
+            <div class="form-group">
+                <label for="accroche">accroche</label>
+                <textarea class="form-control" id="accroche" name="accroche" placeholder="accroche" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="texte">Texte</label>
+                <textarea class="form-control" id="texte" name="texte" placeholder="Texte" required></textarea>
+            </div>
+
+        </div>
+
+
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <label for="illu1">Illustration 1</label>
+                <input type="file" id="illu1" name="fichier" accept="image/*">
+
+                <a href="javascript:void(0);" onclick='return false;' class="info"><img src="" alt="" width="70%"
+                        style="margin:10px 0px;" /></a>
+
+            </div>
+
+            <div class="form-group">
+                <label for="illu2">Illustration 2</label>
+                <input type="file" id="illu2" name="fichier2" accept="image/*">
+
+                <a href="javascript:void(0);" onclick='return false;' class="info"><img src="" alt="" width="70%"
+                        style="margin:10px 0px;" /></a>
+
+            </div>
+
+            <div class="form-group">
+                <label for="illu3">Illustration 3</label>
+                <input type="file" id="illu3" name="fichier3" accept="image/*">
+
+                <a href="javascript:void(0);" onclick='return false;' class="info"><img src="" alt="" width="70%"
+                        style="margin:10px 0px;" /></a>
+
+            </div>
+
+            <div class="form-group">
+                <label for="illu4">Illustration 4</label>
+                <input type="file" id="illu4" name="fichier4" accept="image/*">
+
+                <a href="javascript:void(0);" onclick='return false;' class="info"><img src="" alt="" width="70%"
+                        style="margin:10px 0px;" /></a>
+
+            </div>
+
+            <div class="form-group">
+                <label for="illu5">Illustration 5</label>
+                <input type="file" id="illu5" name="fichier5" accept="image/*">
+
+                <a href="javascript:void(0);" onclick='return false;' class="info"><img src="" alt="" width="70%"
+                        style="margin:10px 0px;" /></a>
+
+            </div>
+
+
+        </div>
+
+        <h4 style="padding-top: 40px;">Catégorie liée</h4>
+        <div class="form-group">
+            <label for="publier" style="float:left;width:200px!important;">Catégorie</label>
+            <select id="cat_id" name="cat_id" required>
+                <option value="">-sélectionnez une catégorie-</option>
+
+            </select>
+        </div>
+
+        <h4 style="padding-top: 40px;">PUBLIER</h4>
+
+
+        <div class="form-group">
+            <label for="publier" style="float:left;width:200px!important;">Publier l'actualité</label>
+            <select id="publier" name="publier">
+
+                <option value="0">Non</option>
+
+                <option value="1">OUI</option>
+
+            </select>
+        </div>
+
+
+        <div class="clearfix"></div>
+        <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>" />
+        <input type="hidden" name="MM_update" value="form1" />
+        <button type="submit" class="btn btn-default">Valider les modifications</button>
+    </form>
+    <button routerLink="/blog" class="btn btn-warning">Retour à la liste</button>
+
+</div>

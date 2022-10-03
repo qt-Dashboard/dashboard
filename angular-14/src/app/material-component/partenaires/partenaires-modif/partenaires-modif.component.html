@@ -1,0 +1,114 @@
+<h3 class="inner-tittle">Modifier les coordonnés d'un partenaire</h3>
+<div class="graph-form">
+
+    <form method="post" action="" enctype="multipart/form-data">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="nom">Nom</label>
+                <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" value="" required>
+            </div>
+
+            <div class="form-group">
+                <label for="prenom">Prénom</label>
+                <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom" value=""
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="tel">Tel</label>
+                <input type="tel" class="form-control" id="tel" name="tel" placeholder="Tel" value="" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" class="form-control" id="password" name="password"
+                    placeholder="8caractères dont 1 majuscule et 1 caractère spécial min"
+                    pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" value="" required>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="adresse">Adresse</label>
+                <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse" value=""
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="cp">Code postal</label>
+                <input type="text" class="form-control" id="cp" name="cp" placeholder="Code postal" value="" required>
+            </div>
+
+            <div class="form-group">
+                <label for="ville">Ville</label>
+                <input type="text" class="form-control" id="ville" name="ville" placeholder="Ville" value="" required>
+            </div>
+
+            <div class="form-group">
+                <label for="pays">Pays</label>
+
+                <select name="pays" id="pays" class="" required>
+                    <option value="" selected="selected">--Selectionnez un pays--</option>
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Logo">Illustration</label>
+                <input type="file" id="Logo" name="fichier" accept="image/*">
+
+                <a href="" onclick='return false;' class="info"><img src="" alt="" width="70%"
+                        style="margin:10px 0px;" /></a>
+
+            </div>
+
+            <div class="form-group">
+                <label for="newsletters">Inscrit aux
+                    newsletters</label>
+                <select id="newsletters" name="newsletters">
+                    <option value="">--</option>
+
+                    <option value="0">selected
+                        NON
+                    </option>
+
+                    <option value="1">selected
+                        OUI
+                    </option>
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="publier">Publier la partenaire</label>
+                <select id="publier" name="publier">
+                    <option value="">--</option>
+
+                    <option value="0">selected
+                        Non
+                    </option>
+
+                    <option value="1">selected
+                        OUI
+                    </option>
+
+                </select>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+
+
+        </div>
+        <div class="clearfix"></div>
+        <input type="hidden" name="id" value="" />
+        <input type="hidden" name="MM_update" value="form1" />
+        <button type="submit" class="btn btn-default">Valider les modifications</button>
+    </form>
+    <button routerLink="/partenaires" class="btn btn-warning">Retour à la liste</button>
+</div>

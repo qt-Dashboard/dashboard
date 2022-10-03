@@ -1,0 +1,80 @@
+<h3 class="inner-tittle">Modifier Produit a la une / Meilleurs ventes / dernières ventes </h3>
+<div class="graph-form">
+
+    <form method="post" action="" enctype="multipart/form-data">
+        <div class="col-md-6">
+            <div class="form-group">
+
+                <input type="checkbox" id="alaune" name="alaune" value="1">
+                <label for="bestSeller">A la une</label>
+            </div>
+
+            <div class="form-group">
+
+                <input type="checkbox" id="bestSeller" name="bestSeller" value="1">
+                <label for="bestSeller">Meilleures ventes</label>
+            </div>
+
+            <div class="form-group">
+
+                <input type="checkbox" id="topRate" name="topRate" value="1">
+                <label for="topRate">Mieux notés</label>
+            </div>
+
+            <div class="form-group">
+
+                <input type="checkbox" id="hotSale" name="hotSale" value="1">
+                <label for="hotSale">Plus vendus</label>
+            </div>
+
+            <div class="form-group">
+
+                <input type="checkbox" id="lastDeal" name="lastDeal" value="1">
+                <label for="lastDeal">Dernières offres</label>
+            </div>
+
+        </div>
+
+
+
+
+        <div class="col-md-6">
+
+
+            <h4>Filtrer par...</h4>
+
+
+
+            <div class="form-group">
+                <label for="cat_id" style="float:left;width:200px!important;">Categorie et gamme liée</label>
+                <select id="cat_id" name="cat_id">
+                    <option value="">-- Selectionner une catégorie --</option>
+
+
+                </select>
+
+                <select id="g_id" name="g_id">
+                    <option value="">-- Selectionner une gamme --</option>
+
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+                <label for="id_product" style="float:left;width:200px!important;">Produit concerné</label>
+                <select id="id_product" name="id_product" required>
+                    <option value="">-- Selectionner un produit --</option>
+
+
+                </select>
+
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <input type="hidden" name="id" value="" />
+        <input type="hidden" name="MM_update" value="form1" />
+        <button type="submit" class="btn btn-default">Valider les modifications</button>
+    </form>
+    <button routerLink="/zone4" class="btn btn-warning">Retour à la liste</button>
+</div>

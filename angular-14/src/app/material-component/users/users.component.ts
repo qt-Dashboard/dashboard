@@ -57,7 +57,7 @@ export class UsersComponent implements OnInit {
         this.usersService.deleteUser(userId).subscribe({
           next: () => this.getUsers()
         }),
-        this.snackBar.open("Vous avez bien supprimé l'utilisateur", 'Retour', {
+        this.snackBar.open("Vous avez bien supprimé l'utilisateur", '', {
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
         });

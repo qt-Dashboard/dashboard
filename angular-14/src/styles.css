@@ -16,3 +16,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .header-profile {
     cursor: pointer;
 }
+
+/* Change the snackbar color font, bg & bc */
+.mat-snack-bar-container{
+    color: #000000 !important; 
+    background-color: #ffffff !important;
+    border-color: #000000 !important;
+  }
+/* Change the snackbar action button color font*/
+.mat-simple-snackbar-action {
+    color: #000000 !important;
+  }

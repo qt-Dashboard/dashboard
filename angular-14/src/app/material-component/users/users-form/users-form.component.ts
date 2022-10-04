@@ -64,7 +64,7 @@ export class UsersFormComponent implements OnInit {
   private addUser(user: User) {
     this.usersService.createUser(user).subscribe(
       () => {
-        this.snackBar.open("L'utilisateur a bien été créé", 'Retour', {
+        this.snackBar.open("L'utilisateur a bien été créé", '', {
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
         });
@@ -75,7 +75,7 @@ export class UsersFormComponent implements OnInit {
           });
       },
       () => {
-        this.snackBar.open("ERREUR : L'utilisateur n'a pas pu être créé", 'Retour', {
+        this.snackBar.open("ERREUR : L'utilisateur n'a pas pu être créé", '', {
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
         });
@@ -86,7 +86,7 @@ export class UsersFormComponent implements OnInit {
   private modifyUser(user: User) {
     this.usersService.updateUser(user).subscribe(
       () => {
-        this.snackBar.open("L'utilisateur a bien été mis à jour", 'Retour', {
+        this.snackBar.open("L'utilisateur a bien été mis à jour", '', {
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
         });
@@ -97,7 +97,7 @@ export class UsersFormComponent implements OnInit {
           });
       },
       () => {
-        this.snackBar.open("ERREUR : L'utilisateur n'a pas été mis à jour", 'Retour', {
+        this.snackBar.open("ERREUR : L'utilisateur n'a pas été mis à jour", '', {
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
         });

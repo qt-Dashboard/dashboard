@@ -41,6 +41,7 @@ import { GammesComponent } from './material-component/gammes/gammes.component';
 import { GridComponent } from './material-component/grid/grid.component';
 import { InscritsNewsletterComponent } from './material-component/inscrits-newsletter/inscrits-newsletter.component';
 import { ListsComponent } from './material-component/lists/lists.component';
+import { MapComponent } from './material-component/map/map.component';
 import { MembresAjoutComponent } from './material-component/membres/membres-ajout/membres-ajout.component';
 import { MembresModifComponent } from './material-component/membres/membres-modif/membres-modif.component';
 import { MembresComponent } from './material-component/membres/membres.component';
@@ -471,6 +472,10 @@ export const AppRoutes: Routes = [
         path: 'tools',
         component: ToolsComponent
       },
+      {
+        path: 'map',
+        component: MapComponent
+      }
     ]
   },
   

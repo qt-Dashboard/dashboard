@@ -220,7 +220,7 @@ import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.componen
     UsersComponent,
     ToolsComponent,
     ToolsComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
     UploadComponent,
     FileDragNDropDirective,
     ToolsComponent,

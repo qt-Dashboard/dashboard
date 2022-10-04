@@ -26,7 +26,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DateAdapter, MatOptionModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
-import { MaterialComponentsModule } from './material-component/material.module';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
 import { MatTableModule } from '@angular/material/table';
 import { MyDateAdapter, MY_FORMAT } from './material-component/tools/tools.component';
@@ -36,6 +35,10 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
+import { MarkerService } from './services/marker.service';
+import { MaterialComponentsModule } from './material-component/material.module';
+import { PopupMapService } from './services/popup-map.service';
+
 
 @NgModule({
   declarations: [
@@ -72,7 +75,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatInputModule,
     MatProgressBarModule,
     MatToolbarModule,
-    MatSortModule
+    MatSortModule,
+
   ],
   providers: [
     {
@@ -87,7 +91,9 @@ import { MatSortModule } from '@angular/material/sort';
       useValue: {
         duration: 3000
       }
-    }
+    },
+    MarkerService,
+    PopupMapService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

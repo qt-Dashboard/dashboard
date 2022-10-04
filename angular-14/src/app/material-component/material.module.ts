@@ -105,6 +105,7 @@ import { UsersModifComponent } from './users/users-modif/users-modif.component';
 import { UsersFormComponent } from './users/users-form/users-form.component';
 import { UsersComponent } from './users/users.component';
 import { ToolsComponent } from './tools/tools.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { UploadComponent } from './upload/upload.component';
 import { FileDragNDropDirective } from './upload/file-drag-n-drop.directive';
 import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.component';
@@ -218,6 +219,8 @@ import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.componen
     UsersFormComponent,
     UsersComponent,
     ToolsComponent,
+    ToolsComponent,
+    ConfirmDialogComponent
     UploadComponent,
     FileDragNDropDirective,
     ToolsComponent,

@@ -109,6 +109,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 import { UploadComponent } from './upload/upload.component';
 import { FileDragNDropDirective } from './upload/file-drag-n-drop.directive';
 import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   imports: [
@@ -224,7 +225,8 @@ import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.componen
     UploadComponent,
     FileDragNDropDirective,
     ToolsComponent,
-    DialogConfirmComponent
+    DialogConfirmComponent,
+    MapComponent
 
     ]
 })

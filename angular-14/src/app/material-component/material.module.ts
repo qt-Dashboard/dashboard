@@ -110,6 +110,7 @@ import { UploadComponent } from './upload/upload.component';
 import { FileDragNDropDirective } from './upload/file-drag-n-drop.directive';
 import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.component';
 import { MapComponent } from './map/map.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   imports: [
@@ -120,7 +121,9 @@ import { MapComponent } from './map/map.component';
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    CdkTableModule
+    CdkTableModule,
+    LeafletModule,
+    
   ],
   providers: [],
   entryComponents: [DialogOverviewExampleDialogComponent],
@@ -226,7 +229,7 @@ import { MapComponent } from './map/map.component';
     FileDragNDropDirective,
     ToolsComponent,
     DialogConfirmComponent,
-    MapComponent
+    MapComponent,
 
     ]
 })

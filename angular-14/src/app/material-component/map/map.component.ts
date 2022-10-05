@@ -1,58 +1,92 @@
 import { Component, AfterViewInit } from '@angular/core';
-import * as L from 'leaflet';
 import { MarkerService } from 'src/app/services/marker.service';
+import * as Leaflet from 'leaflet';
+import * as L from 'leaflet';
 
-const iconRetinaUrl = 'https://altameos.com/mapV2/AdminD/uploads/map-icon/99cd4e87ba844e19fbd431554fc651aa.png';
-const iconUrl = 'assets/marker-icon.png';
-const shadowUrl = 'assets/marker-shadow.png';
-const iconDefault = L.icon({
-  iconRetinaUrl,
-  iconUrl,
-  shadowUrl,
-  iconSize: [25, 35],
-  iconAnchor: [10, 40],
-  popupAnchor: [1, -34],
-  tooltipAnchor: [16, -28],
-  shadowSize: [40, 40]
-});
-L.Marker.prototype.options.icon = iconDefault;
+
+
+Leaflet.Icon.Default.imagePath = 'assets/';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent implements AfterViewInit {
-  private map: any;
+export class MapComponent {
 
-  private initMap(): void {
-    this.map = L.map('map', {
-      center: [49.02275321906884, 1.1517542134257543],
-      zoom: 12,
-
-    });
-
-    // const marker = L.marker([49.02275321906884, 1.1517542134257543]);
-    const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      minZoom: 3,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-      
-    });
-
-
+  
+  map!: Leaflet.Map;
+  markers: Leaflet.Marker[] = [];
+  options = {
+    layers: [
+      Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      })
+    ],
+    zoom: 16,
+    center: { lat: 49.02275321906884, lng: 1.1517542134257543 },
     
-    // marker.addTo(this.map);
-    tiles.addTo(this.map);
-
   }
 
-  constructor(private markerService: MarkerService) { }
-
-  ngAfterViewInit(): void {
-    this.initMap();
-    this.map.initMap(this.map);
-    this.markerService.getModel();
+  initMarkers() {
+    const initialMarkers = [
+      {
+        position: { lat: 47.02275321906884, lng: 1.1517542134257543 },
+        name: "point 3"
+      },
+      {
+        position: { lat: 48.035669436745735, lng: 1.1517542134257543 },
+        name: "point 2"
+      },
+      {
+        position: { lat: 49.02275321906884, lng: 1.1517542134257543 },
+        name: "lieu: Home",
+        tel: "tel: 0207080808"
+      },
+    ];
+    for (let index = 0; index < initialMarkers.length; index++) {
+      const data = initialMarkers[index];
+      const marker = this.generateMarker(data, index);
+      marker.addTo(this.map).bindPopup(`<b>${data.name},  ${data.tel}</b>`);
+      this.map.panTo(data.position);
+      this.markers.push(marker)
+    }
   }
 
+  generateMarker(data: any, index: number) {
+    return Leaflet.marker(data.position, { draggable: data.draggable })
+      .on('click', (event) => this.markerClicked(event, index))
+      .on('dragend', (event) => this.markerDragEnd(event, index));
+  }
+
+  onMapReady($event: Leaflet.Map) {
+    this.map = $event;
+    this.initMarkers();
+  }
+
+  mapClicked($event: any) {
+    console.log($event.latlng.lat, $event.latlng.lng);
+  }
+
+  markerClicked($event: any, index: number) {
+    console.log($event.latlng.lat, $event.latlng.lng);
+  }
+
+  markerDragEnd($event: any, index: number) {
+    console.log($event.target.getLatLng());
+  }
+
+  getAddress(lat: number, lng: number) {
+    const geocoder = (Leaflet.Control as any).Geocoder.nominatim();
+    return new Promise((resolve, reject) => {
+        geocoder.reverse(
+            { lat, lng },
+            this.map.getZoom(),
+            (results: any) => results.length ? resolve(results[0].name) : reject(null)
+        );
+    })
+  }
+
+  
 }
+

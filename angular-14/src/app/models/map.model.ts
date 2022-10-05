@@ -1,4 +1,4 @@
-export class Map {
+export class Geocoder {
 
     datasetid?: string;
     recordid?: any;

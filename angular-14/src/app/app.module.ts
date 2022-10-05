@@ -38,7 +38,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MarkerService } from './services/marker.service';
 import { MaterialComponentsModule } from './material-component/material.module';
 import { PopupMapService } from './services/popup-map.service';
-
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   declarations: [
@@ -76,7 +76,8 @@ import { PopupMapService } from './services/popup-map.service';
     MatProgressBarModule,
     MatToolbarModule,
     MatSortModule,
-
+    LeafletModule,
+   
   ],
   providers: [
     {

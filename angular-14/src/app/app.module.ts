@@ -35,10 +35,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
-import { MarkerService } from './services/marker.service';
 import { MaterialComponentsModule } from './material-component/material.module';
-import { PopupMapService } from './services/popup-map.service';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { MapService } from './services/map.service';
 
 @NgModule({
   declarations: [
@@ -93,8 +92,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
         duration: 3000
       }
     },
-    MarkerService,
-    PopupMapService
+    MapService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

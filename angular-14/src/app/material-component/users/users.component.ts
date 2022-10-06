@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { UsersService } from "src/app/services/users.service";
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.component";
-import { MatSort, Sort } from "@angular/material/sort";
+import { Sort } from "@angular/material/sort";
 
 
 export interface User {

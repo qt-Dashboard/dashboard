@@ -39,7 +39,11 @@
               "./node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": [
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/JS/map/leaflet-easy-button.js",
+              "src/assets/JS/map/leaflet-tag-filter-button.js",
+              "src/assets/JS/map/leaflet-routing-machine.js",
+              "src/assets/JS/map/lrm-graphhopper.js"
             ],
 
             "vendorChunk": true,

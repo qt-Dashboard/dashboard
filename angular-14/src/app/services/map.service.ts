@@ -22,7 +22,7 @@ export class MapService {
       for (const c of res) {
         const lat = c.coordinates[0];
         const lon = c.coordinates[1];
-        const marker = L.marker([lon, lat]).addTo(map);
+        let marker = L.marker([lat, lon]).addTo(map);
         marker.bindPopup(`<center>
         <p>
         <strong>${c.name}</strong>
@@ -33,4 +33,6 @@ export class MapService {
       }
     });
   }
+
+
 }

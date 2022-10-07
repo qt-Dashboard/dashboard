@@ -125,7 +125,7 @@ import { MapService } from '../services/map.service';
     FlexLayoutModule,
     CdkTableModule,
     LeafletModule,
-
+    HttpClientModule
   ],
   providers: [
     MapService
@@ -234,7 +234,7 @@ import { MapService } from '../services/map.service';
     ToolsComponent,
     DialogConfirmComponent,
     MapComponent,
-
+    
     ]
 })
 export class MaterialComponentsModule {}

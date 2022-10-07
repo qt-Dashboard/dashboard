@@ -4,8 +4,7 @@ import { Router } from "@angular/router";
 import { UsersService } from "src/app/services/users.service";
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.component";
-import { Sort } from "@angular/material/sort";
-
+import { MatSort, Sort } from "@angular/material/sort";
 
 export interface User {
   id?: string;
@@ -68,7 +67,6 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
-
   }
 
   updateUser(userid: string) {
@@ -76,7 +74,7 @@ export class UsersComponent implements OnInit {
   }
 
   private getUsers() {
-    this.usersService.getUsers().subscribe((users: any) => {
+    this.usersService.getUsers().subscribe((users:any) => {
       this.users = users;
     });
   }
@@ -99,7 +97,6 @@ export class UsersComponent implements OnInit {
           return compare(a.isAdmin, b.isAdmin, isAsc);
         case 'country':
           return compare(a.country?.toLowerCase(), b.country?.toLowerCase(), isAsc);
-
         default:
           return 0;
       }

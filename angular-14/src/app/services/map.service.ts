@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as L from 'leaflet';
+import { ButtonsComponent } from '../material-component/buttons/buttons.component';
 
 @Injectable({
   providedIn: 'root'
@@ -29,10 +30,9 @@ export class MapService {
         </p>
         </center>
         <p>${c.description}</p>
-        `).openPopup();
+        `);
       }
     });
   }
-
 
 }

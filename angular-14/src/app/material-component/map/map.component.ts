@@ -24,14 +24,14 @@ export class MapComponent implements OnInit {
 
     navigator.geolocation.getCurrentPosition((position) => {
 
-     
+
       const coords = position.coords;
       const latLong = [position.coords.latitude, position.coords.longitude];
 
       console.log(
         `lat: ${coords.latitude}, lon: ${coords.longitude}`
       );
-      let mymap = L.map('map').setView(<any>latLong, 12);
+      let mymap = L.map('map').setView(<any>latLong, 7);
 
       L.tileLayer(
         'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -39,27 +39,38 @@ export class MapComponent implements OnInit {
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
           maxZoom: 18,
           id: 'map',
-          
+
         }
       ).addTo(mymap);
 
-L.Routing.control({
-  waypoints: [
-    L.latLng(coords.latitude, coords.longitude),
-    L.latLng(49.02275321906884, 1.1517542134257543)
-  ], routeWhileDragging: false
-}).addTo(mymap);
+      L.Routing.control({
+        router: L.Routing.osrmv1({
+          serviceUrl: `http://router.project-osrm.org/route/v1/`
+        }),
+        routeWhileDragging: true,
+        showAlternatives: true,
+        fitSelectedRoutes: false,
+        show: false,
+        addWaypoints: false,
+        
+        waypoints: [
+          L.latLng(coords.latitude, coords.longitude),
+          L.latLng(49.02275321906884, 1.1517542134257543)
+        ],
+        
+        
+      }).addTo(mymap);
 
       let marker = L.marker(<any>latLong).addTo(mymap);
 
       marker.bindPopup('<b>Vous etes ici!</b>').openPopup();
-      
+
       this.mapService.makeMarkers(mymap);
 
     });
 
     this.watchPosition();
-    
+
   }
 
   watchPosition() {
@@ -82,7 +93,6 @@ L.Routing.control({
       maximumAge: 0
     })
 
-
   }
 
 
@@ -93,7 +103,6 @@ L.Routing.control({
 
 
 
-  
 
   constructor(private mapService: MapService) {
 

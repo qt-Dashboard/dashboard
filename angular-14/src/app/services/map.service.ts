@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as L from 'leaflet';
+import { ButtonsComponent } from '../material-component/buttons/buttons.component';
 
 @Injectable({
   providedIn: 'root'
@@ -22,15 +23,16 @@ export class MapService {
       for (const c of res) {
         const lat = c.coordinates[0];
         const lon = c.coordinates[1];
-        const marker = L.marker([lon, lat]).addTo(map);
+        let marker = L.marker([lat, lon]).addTo(map);
         marker.bindPopup(`<center>
         <p>
         <strong>${c.name}</strong>
         </p>
         </center>
         <p>${c.description}</p>
-        `).openPopup();
+        `);
       }
     });
   }
+
 }

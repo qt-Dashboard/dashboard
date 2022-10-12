@@ -2,7 +2,8 @@ import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { MapService } from 'src/app/services/map.service';
 import * as Leaflet from 'leaflet';
 import * as L from 'leaflet';
-
+import 'leaflet-routing-machine';
+import 'leaflet-control-geocoder';
 
 Leaflet.Icon.Default.imagePath = 'assets/';
 
@@ -13,8 +14,6 @@ Leaflet.Icon.Default.imagePath = 'assets/';
 })
 export class MapComponent implements OnInit {
 
-private map:any;
-
   ngOnInit() {
 
     if (!navigator.geolocation) {
@@ -23,33 +22,60 @@ private map:any;
     }
 
     navigator.geolocation.getCurrentPosition((position) => {
+
       const coords = position.coords;
-      const latLong = [coords.latitude, coords.longitude];
+      const latLong = [position.coords.latitude, position.coords.longitude];
+    
       console.log(
-        `lat: ${position.coords.latitude}, lon: ${position.coords.longitude}`
+        `lat: ${coords.latitude}, lon: ${coords.longitude}`
       );
-      let mymap = L.map('map').setView(<any>latLong, 13);
+      let mymap = L.map('map').setView(<any>latLong, 7);
 
       L.tileLayer(
         'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
         {
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
           maxZoom: 18,
-          id: 'map'
+          id: 'map',
           
         }
       ).addTo(mymap);
+        
+      //   L.Routing.control({
+        
+      //   router: L.Routing.osrmv1({
+      //     serviceUrl: `http://router.project-osrm.org/route/v1/`
+      //   }),
+      //   routeWhileDragging: true,
+      //   showAlternatives: true,
+      //   fitSelectedRoutes: false,
+      //   show: false,
+      //   addWaypoints: false,
+      //   waypoints: [
+      //     L.latLng(coords.latitude, coords.longitude),
+      //     L.latLng(49.02275321906884, 1.1517542134257543)
+      //   ],
+        
+        
+      // }).addTo(mymap);
+
+      
       let marker = L.marker(<any>latLong).addTo(mymap);
 
       marker.bindPopup('<b>Vous etes ici!</b>').openPopup();
 
-      this.mapService.makeMarkers(this.map);
+      this.mapService.makeMarkers(mymap);
+
+      
 
     });
+
     this.watchPosition();
+
   }
 
   watchPosition() {
+
     const desLat = 0;
     const desLon = 0;
     let id = navigator.geolocation.watchPosition((position) => {
@@ -67,16 +93,21 @@ private map:any;
       timeout: 5000,
       maximumAge: 0
     })
+
   }
 
-constructor(private mapService: MapService) {
 
-}
 
-ngAfterViewInit(): void {
-  this.ngOnInit();
-  this.mapService.makeMarkers(this.map);
-}
+
+
+
+
+
+
+  constructor(private mapService: MapService) {
+    
+  }
+
 
 
 

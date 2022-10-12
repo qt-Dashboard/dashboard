@@ -24,7 +24,19 @@
         49.02275321906884,
         1.1517542134257543
       ],
-      "desciption": "Coucou"
+      "description": "Coucou",
+      "iconUrl": "./assets/images/map/exhibitions.png",
+      "image": "assets/images/logo.png"
+    },
+    {
+      "id": 2,
+      "name": "pharmacie",
+      "coordinates": [
+        45.02275321906884,
+        1.3517542134257543
+      ],
+      "description": "piqure",
+      "iconUrl": "./assets/images/map/exhibitions.png"
       
     }
   ]

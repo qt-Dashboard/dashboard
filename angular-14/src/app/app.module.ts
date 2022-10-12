@@ -76,7 +76,7 @@ import { MapService } from './services/map.service';
     MatToolbarModule,
     MatSortModule,
     LeafletModule,
-   
+    
   ],
   providers: [
     {

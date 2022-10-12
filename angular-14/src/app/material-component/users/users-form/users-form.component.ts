@@ -7,7 +7,7 @@ import { UsersService } from 'src/app/services/users.service';
 import { timer } from 'rxjs';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
-interface Country {
+interface Role {
   value: string;
   viewValue: string;
 }
@@ -24,10 +24,10 @@ export class UsersFormComponent implements OnInit {
   isEditMode = false;
   currentUserId!: string;
 
-  countries: Country[] = [
-    {value: 'France-FR', viewValue: 'France'},
-    {value: 'Allemagne-DE', viewValue: 'Allemagne'},
-    {value: 'Luxembourg-LU', viewValue: 'Luxembourg'},
+  roles: Role[] = [
+    {value: 'administrateur', viewValue: 'administrateur'},
+    {value: 'modérateur', viewValue: 'modérateur'},
+    {value: 'utilisateur', viewValue: 'utilisateur'},
   ];
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
@@ -48,10 +48,10 @@ export class UsersFormComponent implements OnInit {
 
   private initUserForm() {
     this.form = this.formBuilder.group({
-      name: ['', Validators.required],
-      password: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['', Validators.required],
+      prenom: ['', Validators.required],
+      nom: ['', Validators.required],
+      role: ['', Validators.required],
+      adressMail: ['', [Validators.required, Validators.email]],
       isAdmin: [false],
       street: [''],
       apartment: [''],
@@ -111,18 +111,10 @@ export class UsersFormComponent implements OnInit {
         this.isEditMode = true;
         this.currentUserId = params['id'];
         this.usersService.getUser(params['id']).subscribe((user:any) => {
-          this.userForm['name'].setValue(user.name);
-          this.userForm['email'].setValue(user.email);
-          this.userForm['phone'].setValue(user.phone);
-          this.userForm['isAdmin'].setValue(user.isAdmin);
-          this.userForm['street'].setValue(user.street);
-          this.userForm['apartment'].setValue(user.apartment);
-          this.userForm['zip'].setValue(user.zip);
-          this.userForm['city'].setValue(user.city);
-          this.userForm['country'].setValue(user.country);
-
-          this.userForm['password'].setValidators([]);
-          this.userForm['password'].updateValueAndValidity();
+          this.userForm['prenom'].setValue(user.prenom);
+          this.userForm['nom'].setValue(user.nom);
+          this.userForm['role'].setValue(user.role);
+          this.userForm['adressMail'].setValue(user.adressMail);
         });
       }
     });
@@ -133,16 +125,10 @@ export class UsersFormComponent implements OnInit {
   
     const user: User = {
       id: this.currentUserId,
-      name: this.userForm['name'].value,
-      password: this.userForm['password'].value,
-      email: this.userForm['email'].value,
-      phone: this.userForm['phone'].value,
-      isAdmin: this.userForm['isAdmin'].value,
-      street: this.userForm['street'].value,
-      apartment: this.userForm['apartment'].value,
-      zip: this.userForm['zip'].value,
-      city: this.userForm['city'].value,
-      country: this.userForm['country'].value
+      prenom: this.userForm['prenom'].value,
+      nom: this.userForm['nom'].value,
+      role: this.userForm['role'].value,
+      adressMail: this.userForm['adressMail'].value,
     };
     if (this.isEditMode) {
       this.modifyUser(user);

@@ -1,24 +1,18 @@
-import { Component, Inject, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 import { UsersService } from "src/app/services/users.service";
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.component";
-import { MatSort, Sort } from "@angular/material/sort";
+import { Sort } from "@angular/material/sort";
+import { MatTableDataSource } from "@angular/material/table";
 
 export interface User {
-  id?: string;
-  name?: string;
-  password?: string;
-  email: string;
-  phone?: string;
-  token?: string;
-  isAdmin?: boolean;
-  street?: string;
-  apartment?: string;
-  zip?: string;
-  city?: string;
-  country?: string;
+  id: number;
+  prenom: string;
+  nom: string;
+  role: string;
+  adressMail: string;
 }
 
 @Component({
@@ -29,7 +23,8 @@ export interface User {
 
 export class UsersComponent implements OnInit {
   users: User[] = [];
-  displayedColumns: string[] = ['name', 'email', 'isAdmin', 'country', 'iconUpd', 'iconDel']; 
+  displayedColumns: string[] = ['id', 'prenom', 'nom', 'role', 'adressMail', 'iconUpd', 'iconDel']; 
+  dataSource = new MatTableDataSource<User>();
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
@@ -40,6 +35,11 @@ export class UsersComponent implements OnInit {
     private usersService: UsersService,
     private router: Router,
     ) {}
+
+  applyFilter(event: Event) {
+      const filterValue = (event.target as HTMLInputElement).value;
+      this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 
   openDialog(userId: string) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent,{
@@ -89,14 +89,16 @@ export class UsersComponent implements OnInit {
     this.users = data.sort((a, b) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
-        case 'name':
-          return compare(a.name?.toLowerCase(), b.name?.toLowerCase(), isAsc);
-        case 'email':
-          return compare(a.email?.toLowerCase(), b.email?.toLowerCase(), isAsc);
-        case 'isAdmin':
-          return compare(a.isAdmin, b.isAdmin, isAsc);
-        case 'country':
-          return compare(a.country?.toLowerCase(), b.country?.toLowerCase(), isAsc);
+        case 'id':
+          return compare(a.id, b.id, isAsc);
+        case 'prenom':
+          return compare(a.prenom.toLowerCase(), b.prenom.toLowerCase(), isAsc);
+        case 'nom':
+          return compare(a.nom.toLowerCase(), b.nom.toLowerCase(), isAsc);
+        case 'role':
+          return compare(a.role.toLowerCase(), b.role.toLowerCase(), isAsc);
+        case 'adressMail':
+          return compare(a.adressMail.toLowerCase(), b.adressMail.toLowerCase(), isAsc);
         default:
           return 0;
       }

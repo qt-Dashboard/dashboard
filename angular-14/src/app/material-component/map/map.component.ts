@@ -3,7 +3,7 @@ import { MapService } from 'src/app/services/map.service';
 import * as Leaflet from 'leaflet';
 import * as L from 'leaflet';
 import 'leaflet-routing-machine';
-
+import 'leaflet-control-geocoder';
 
 Leaflet.Icon.Default.imagePath = 'assets/';
 
@@ -14,7 +14,6 @@ Leaflet.Icon.Default.imagePath = 'assets/';
 })
 export class MapComponent implements OnInit {
 
-
   ngOnInit() {
 
     if (!navigator.geolocation) {
@@ -24,10 +23,9 @@ export class MapComponent implements OnInit {
 
     navigator.geolocation.getCurrentPosition((position) => {
 
-
       const coords = position.coords;
       const latLong = [position.coords.latitude, position.coords.longitude];
-
+    
       console.log(
         `lat: ${coords.latitude}, lon: ${coords.longitude}`
       );
@@ -39,33 +37,36 @@ export class MapComponent implements OnInit {
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
           maxZoom: 18,
           id: 'map',
-
+          
         }
       ).addTo(mymap);
+        
+      //   L.Routing.control({
+        
+      //   router: L.Routing.osrmv1({
+      //     serviceUrl: `http://router.project-osrm.org/route/v1/`
+      //   }),
+      //   routeWhileDragging: true,
+      //   showAlternatives: true,
+      //   fitSelectedRoutes: false,
+      //   show: false,
+      //   addWaypoints: false,
+      //   waypoints: [
+      //     L.latLng(coords.latitude, coords.longitude),
+      //     L.latLng(49.02275321906884, 1.1517542134257543)
+      //   ],
+        
+        
+      // }).addTo(mymap);
 
-      L.Routing.control({
-        router: L.Routing.osrmv1({
-          serviceUrl: `http://router.project-osrm.org/route/v1/`
-        }),
-        routeWhileDragging: true,
-        showAlternatives: true,
-        fitSelectedRoutes: false,
-        show: false,
-        addWaypoints: false,
-        
-        waypoints: [
-          L.latLng(coords.latitude, coords.longitude),
-          L.latLng(49.02275321906884, 1.1517542134257543)
-        ],
-        
-        
-      }).addTo(mymap);
-
+      
       let marker = L.marker(<any>latLong).addTo(mymap);
 
       marker.bindPopup('<b>Vous etes ici!</b>').openPopup();
 
       this.mapService.makeMarkers(mymap);
+
+      
 
     });
 
@@ -103,9 +104,8 @@ export class MapComponent implements OnInit {
 
 
 
-
   constructor(private mapService: MapService) {
-
+    
   }
 
 

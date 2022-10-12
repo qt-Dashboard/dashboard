@@ -25,7 +25,7 @@
         1.1517542134257543
       ],
       "description": "Coucou",
-      "iconUrl": "assets/images/map/exhibitions.png",
+      "iconUrl": "./assets/images/map/exhibitions.png",
       "image": "assets/images/logo.png"
     },
     {
@@ -36,7 +36,7 @@
         1.3517542134257543
       ],
       "description": "piqure",
-      "iconUrl": "assets/images/map/exhibitions.png"
+      "iconUrl": "./assets/images/map/exhibitions.png"
       
     }
   ]

@@ -3,9 +3,19 @@
     height: 400px;
   }
 
+.marker{
+    background-color: #ff0000;
+    width: 5rem;
+    height: 10rem;
+    z-index: 1000;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
 
-
-
+#map{
+    position: relative;
+}
 
 /* .map-container {
     position: absolute;

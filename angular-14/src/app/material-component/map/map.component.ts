@@ -8,13 +8,14 @@ import 'lrm-graphhopper';
 
 Leaflet.Icon.Default.imagePath = 'assets/';
 
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-
+baseUrl: string = 'http://localhost:3000/mapData';
   ngOnInit() {
 
     if (!navigator.geolocation) {
@@ -45,10 +46,12 @@ export class MapComponent implements OnInit {
       
         L.Routing.control({
         
-        router: (L.Routing as any).graphHopper('8d38728c-beec-4c0f-9882-8d22d9b9b052',{
-        
+          router: L.Routing.osrmv1({
 
-        }),
+            serviceUrl: `http://router.project-osrm.org/route/v1/`,
+            
+            language: 'fr'             
+          }),
         routeWhileDragging: true,
         showAlternatives: true,
         fitSelectedRoutes: false,
@@ -58,7 +61,17 @@ export class MapComponent implements OnInit {
           L.latLng(coords.latitude, coords.longitude),
           L.latLng(49.02275321906884, 1.1517542134257543)
         ],
-        geocoder: (L.Control as any).Geocoder.nominatim(),
+        plan: L.Routing.plan([
+          L.latLng(coords.latitude, coords.longitude),
+          L.latLng(49.02275321906884, 1.1517542134257543)
+        ], {
+          createMarker: function(i, wp) {
+            return L.marker(wp.latLng, {
+              draggable: false
+            });
+          }
+        }),
+        // geocoder: (L.Control as any).Geocoder.nominatim(),
 
 
 

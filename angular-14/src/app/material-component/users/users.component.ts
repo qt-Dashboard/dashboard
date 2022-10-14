@@ -5,15 +5,8 @@ import { UsersService } from "src/app/services/users.service";
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.component";
 import { Sort } from "@angular/material/sort";
-import { MatTableDataSource } from "@angular/material/table";
+import { User } from "src/app/models/user.model";
 
-export interface User {
-  id: number;
-  prenom: string;
-  nom: string;
-  role: string;
-  adressMail: string;
-}
 
 @Component({
   selector: "my-app",
@@ -24,7 +17,6 @@ export interface User {
 export class UsersComponent implements OnInit {
   users: User[] = [];
   displayedColumns: string[] = ['id', 'prenom', 'nom', 'role', 'adressMail', 'iconUpd', 'iconDel']; 
-  dataSource = new MatTableDataSource<User>();
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
@@ -33,13 +25,8 @@ export class UsersComponent implements OnInit {
     public dialog: MatDialog,
     private snackBar: MatSnackBar,
     private usersService: UsersService,
-    private router: Router,
+    private router: Router
     ) {}
-
-  applyFilter(event: Event) {
-      const filterValue = (event.target as HTMLInputElement).value;
-      this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
 
   openDialog(userId: string) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent,{

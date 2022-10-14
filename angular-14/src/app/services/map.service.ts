@@ -29,6 +29,7 @@ export class MapService {
       for (const c of res) {
         const lat = c.coordinates[0];
         const lon = c.coordinates[1];
+        
         var routeOn = false;
 
         var greenIcon = L.icon({ //add this new icon

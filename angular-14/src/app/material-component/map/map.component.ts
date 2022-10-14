@@ -42,14 +42,10 @@ baseUrl: string = 'http://localhost:3000/mapData';
           
         }
       ).addTo(mymap);
-        
       
         L.Routing.control({
-        
           router: L.Routing.osrmv1({
-
             serviceUrl: `http://router.project-osrm.org/route/v1/`,
-            
             language: 'fr'             
           }),
         routeWhileDragging: true,
@@ -73,12 +69,9 @@ baseUrl: string = 'http://localhost:3000/mapData';
         }),
         // geocoder: (L.Control as any).Geocoder.nominatim(),
 
-
-
       }).addTo(mymap);
       
-     
-      
+          
       let marker = L.marker(<any>latLong).addTo(mymap);
 
       marker.bindPopup('<b>Vous etes ici!</b>').openPopup();

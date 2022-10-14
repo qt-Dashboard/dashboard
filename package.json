@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@project-osrm/osrm": "^5.27.0",
     "leaflet-control-geocoder": "^2.4.0",
     "lrm-graphhopper": "^1.3.0"
   }

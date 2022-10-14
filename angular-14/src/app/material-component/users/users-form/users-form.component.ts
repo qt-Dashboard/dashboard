@@ -22,7 +22,7 @@ export class UsersFormComponent implements OnInit {
   form!: FormGroup;
   isSubmitted = false;
   isEditMode = false;
-  currentUserId!: string;
+  currentUserId!: number;
 
   roles: Role[] = [
     {value: 'administrateur', viewValue: 'administrateur'},
@@ -51,13 +51,7 @@ export class UsersFormComponent implements OnInit {
       prenom: ['', Validators.required],
       nom: ['', Validators.required],
       role: ['', Validators.required],
-      adressMail: ['', [Validators.required, Validators.email]],
-      isAdmin: [false],
-      street: [''],
-      apartment: [''],
-      zip: [''],
-      city: [''],
-      country: ['']
+      adressMail: ['', [Validators.required, Validators.email]]
     });
   }
 

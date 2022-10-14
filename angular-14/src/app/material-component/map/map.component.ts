@@ -41,23 +41,23 @@ export class MapComponent implements OnInit {
         }
       ).addTo(mymap);
         
-      //   L.Routing.control({
+        L.Routing.control({
         
-      //   router: L.Routing.osrmv1({
-      //     serviceUrl: `http://router.project-osrm.org/route/v1/`
-      //   }),
-      //   routeWhileDragging: true,
-      //   showAlternatives: true,
-      //   fitSelectedRoutes: false,
-      //   show: false,
-      //   addWaypoints: false,
-      //   waypoints: [
-      //     L.latLng(coords.latitude, coords.longitude),
-      //     L.latLng(49.02275321906884, 1.1517542134257543)
-      //   ],
+        router: L.Routing.osrmv1({
+          serviceUrl: `http://router.project-osrm.org/route/v1/`
+        }),
+        routeWhileDragging: true,
+        showAlternatives: true,
+        fitSelectedRoutes: false,
+        show: false,
+        addWaypoints: false,
+        waypoints: [
+          L.latLng(coords.latitude, coords.longitude),
+          L.latLng(49.02275321906884, 1.1517542134257543)
+        ],
         
         
-      // }).addTo(mymap);
+      }).addTo(mymap);
 
       
       let marker = L.marker(<any>latLong).addTo(mymap);

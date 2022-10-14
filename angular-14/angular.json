@@ -43,8 +43,7 @@
               "./node_modules/jquery/dist/jquery.min.js",
               "src/assets/JS/map/leaflet-easy-button.js",
               "src/assets/JS/map/leaflet-tag-filter-button.js",
-              "src/assets/JS/map/leaflet-routing-machine.js",
-              
+              "src/assets/JS/map/leaflet-routing-machine.js",              
               "src/assets/JS/map/Control.Geocoder.js"
             ],
 

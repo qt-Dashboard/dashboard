@@ -6,22 +6,17 @@ import 'leaflet-control-geocoder';
 @Injectable({
   providedIn: 'root'
 })
+
 export class MapService {
   static makeMarkers() {
     throw new Error('Method not implemented.');
   }
 
-
   baseUrl: string = 'http://localhost:3000/mapData';
-
-
-
 
   constructor(private http: HttpClient) {
 
   }
-
-
 
   makeMarkers(map: L.Map): void {
     this.http.get(this.baseUrl).subscribe((res: any) => {
@@ -44,8 +39,8 @@ export class MapService {
         });
 
 
-
         let marker = L.marker([lat, lon]).addTo(map);
+
         // marker.bindPopup(`<body><center>
         // <p>
         // <strong>${c.name}</strong>
@@ -59,6 +54,7 @@ export class MapService {
         //   }
         // </script>
         // </body>`);
+        
         marker.setIcon(greenIcon);
       
 

@@ -1,0 +1,49 @@
+<h3 class="inner-tittle">Modifier une offre</h3>
+<div class="graph-form">
+
+    <form method="post" action="" enctype="multipart/form-data">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="titre">Titre</label>
+                <input type="text" class="form-control" id="titre" name="titre" placeholder="Titre" value="" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description du produit/offre</label>
+                <textarea class="form-control" id="description" name="description" placeholder="Texte description"
+                    required></textarea>
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <label for="prix">Prix de l'offre</label>
+                <input type="number" class="form-control" id="prix" name="prix" placeholder="Prix en Euros" value=""
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="nb_product">nombre du produit</label>
+                <input type="number" class="form-control" id="nb_product" name="nb_product"
+                    placeholder="Quantité du produit" value="" required>
+            </div>
+
+            <h4 style="padding-top: 40px;">PUBLIER</h4>
+
+            <div class="form-group">
+                <label for="publier" style="float:left;width:200px!important;">Publier l'offre</label>
+                <select id="publier" name="publier">
+
+                </select>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+        <input type="hidden" name="id" value="" />
+        <input type="hidden" name="MM_update" value="form1" />
+        <button type="submit" class="btn btn-default">Valider les modifications</button>
+    </form>
+    <button routerLink="/offres" class="btn btn-warning">Retour à la liste</button>
+</div>

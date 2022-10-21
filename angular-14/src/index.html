@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Material pro - Angular 14 cli material template</title>
+  <base href="./" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.png" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,300,600,700&display=swap" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+    integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder@latest/dist/Control.Geocoder.css" />
+  <link rel="stylesheet" href="assets/JS/map/leaflet-easy-button.css">
+
+  <script type="text/javascript" src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+    integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin="" defer></script>
+  <script type="text/javascript" src="https://unpkg.com/leaflet-control-geocoder@latest/dist/Control.Geocoder.js" defer></script>    
+  <script type="text/javascript" src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js" defer></script>
+  <script type="text/javascript" src="https://altameos.com/mapV2/dist/lrm-graphhopper.js" defer></script>
+  <script type="text/javascript" src="assets/JS/map/leaflet-easy-button.js" defer></script>
+</head>
+
+<body class="mat-typography">
+  <app-root></app-root>
+
+  <script>
+
+    function goTo(LatTo, LongTo, typeCarte, latFrom, longFrom) {
+      var L;
+      var routing = '';
+      var been_routed = false;
+
+      if (typeof latFrom === 'undefined') {
+        latFrom = 45.02275321906884;
+      }
+      if (typeof longFrom === 'undefined') {
+        longFrom = 1.3517542134257543;
+      }
+
+      $(".leaflet-top.leaflet-right").html('');
+      /*$(".-pane.leaflet-overlay-pane svg g").html('');*/
+
+
+
+      if ((LatTo !== '') && (latFrom != '') && (longFrom != '')) {
+        // alert(longFrom);
+
+        if (typeCarte == 1) {
+          var typeCart = 'car';
+          var color = '#063970';
+        }
+        if (typeCarte == 2) {
+          var typeCart = 'foot';
+          var color = '#873e23';
+        }
+        if (typeCarte == 3) {
+          var typeCart = 'bike';
+          var color = '#563261';
+        }
+
+
+        if (been_routed == true) {
+          routing.spliceWaypoints(0, 1);
+        }
+        routing = L.Routing.control({
+          waypoints: [
+            L.latLng(latFrom, longFrom),
+            L.latLng(LatTo, LongTo)
+          ],
+          lineOptions: {
+            styles: [{ color: color, opacity: 1, weight: 5 }]
+          },
+          geocoder: L.Control.Geocoder.nominatim(),
+          router: L.Routing.graphHopper('8d38728c-beec-4c0f-9882-8d22d9b9b052', {
+
+
+            urlParameters: {
+              vehicle: typeCart
+            }
+
+          }),
+          locale: 'fr',
+          routeWhileDragging: false,
+          language: 'fr'
+        });
+
+        routing.addTo(map);
+        been_routed = true;
+
+      }
+
+    }
+
+  </script>
+
+</body>
+
+
+</html>

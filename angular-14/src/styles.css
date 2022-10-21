@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-expansion-panel-body {
+    padding: 0 !important;
+}
+
+.header-name {
+    width: 100%;
+    height: 100%;
+    font-size: 1.1rem;
+}
+
+.header-profile {
+    cursor: pointer;
+}
+
+/* Change the snackbar color font, bg & bc */
+.mat-snack-bar-container{
+    color: #000000 !important; 
+    background-color: #ffffff !important;
+    border-color: #000000 !important;
+  }
+/* Change the snackbar action button color font*/
+.mat-simple-snackbar-action {
+    color: #000000 !important;
+  }

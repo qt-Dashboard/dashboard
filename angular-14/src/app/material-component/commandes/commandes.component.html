@@ -1,0 +1,145 @@
+<h2 class="inner-tittle">Zone commandes</h2>
+<div class="graph-form">
+    <div class="form-body">
+
+
+        <table id="myTable" class="tablesorter">
+            <thead>
+                <tr>
+                    <th style="width: 120px;"></th>
+                    <th>N° commande</th>
+                    <th>Prix HT</th>
+                    <th>Prix TTC</th>
+                    <th>État</th>
+                    <th>Commande</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+
+                    <a routerLink="/commandesModif">Modif.</a> | <a routerLink="">Voir.</a>
+
+                </tr>
+
+            </tbody>
+        </table>
+        <h5>Supprimer toutes les commandes annulée</h5>
+        <button type="submit" onclick=" "
+            style="width:100px; height:50px; background-color:#E5302D; color: #fff;">Supprimer</button>
+
+        <!-------------------Zone bon de commande---------------------->
+
+        <div class="col-xs-6" style="margin-bottom:100px;">
+            <img width="100" height="100" src="">
+
+            <h4>Coordonnées</h4>
+
+        </div>
+        <div class="col-xs-6" style="color:black; margin-top:100px; margin-bottom:250px;">
+            <br>
+
+
+            <div style="text-align:right;">
+                <h5>Adresse de livraison</h5>
+
+            </div>
+
+
+        </div>
+
+        <h2>Bon de livraison commande n°
+
+        </h2>
+        <h3>N° Envoi :
+
+        </h3>
+        <h4>Livreur :
+
+        </h4>
+
+        <h5>Detail</h5>
+    </div>
+
+    <table style='border-collapse: collapse' cellpadding='7'>
+        <tr>
+            <th><strong>Vendeur</strong></th>
+            <th><strong>N° Envoi</strong></th>
+            <th><strong>Livreur</strong></th>
+            <th><strong>Commentaire</strong></th>
+            <th><strong>Produit</strong></th>
+        </tr>
+
+    </table>
+    <button class="btValider" onclick="window.print();">Imprimer</button>
+
+    <!------------------Fin----------------------->
+
+    <!----------------------------------Zone Voir-------------------------------------------------------------------->
+
+    <div class="col-sm-12">
+        <h4 class="widgettitle">Commande n° </h4>
+
+        //-------------------------------------------------------------------//
+
+        <tr>
+            <th colspan='1'>État</th>
+
+        </tr>
+        <tr>
+            <th colspan='1'>Commande</th>
+
+        </tr>
+    </div>
+</div>
+
+<a>Livraison</a>
+
+<table style='border-collapse: collapse' cellpadding='7'>
+    <tr>
+        <th><strong>Vendeur</strong></th>
+        <th><strong>N° Envoi</strong></th>
+        <th><strong>Livreur</strong></th>
+        <th><strong>Commentaire</strong></th>
+        <th><strong>Produit</strong></th>
+        <th><strong>Bon de livraison</strong></th>
+    </tr>
+
+</table>
+
+
+//--------------------------------- AFFICHAGE HTML ---------------------------------//
+?>
+<a>Détail</a>
+
+<table style='border-collapse: collapse' cellpadding='7'>
+    <tr>
+        <th><strong>Produits</strong></th>
+        <th><strong>Quantité</strong></th>
+        <th><strong>Prix Unitaire</strong></th>
+        <th><strong>Vendeur</strong></th>
+    </tr>
+
+
+    <tr>
+        <th colspan='2'>Total HT</th>
+        <td colspan='2'><strong>" . $row_rs_commande2['prixHT'] . " euros</strong></td>
+    </tr>
+    <tr>
+        <th colspan='2'>Total TTC</th>
+        <td colspan='2'><strong>" . $row_rs_commande2['prixTTC'] . " euros</strong></td>
+    </tr>
+    <tr>
+        <th colspan='2'>Total TVA</th>
+        <td colspan='2'><strong>" . $tva . " euros</strong></td>
+    </tr>
+</table><br>
+<button class="btValider" onclick="window.print();">Imprimer</button>
+
+<div class="col-sm-12">
+
+</div>
+
+
+<!----------------------------------FIN ZONE VOIR----------------------------------------------------->

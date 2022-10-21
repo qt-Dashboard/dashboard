@@ -1,0 +1,211 @@
+<h4 class="widgettitle">Modification Commande n°
+    <span class="arow"></span>
+</h4>
+
+<table style='border-collapse: collapse' cellpadding='7'>
+
+
+    <form method="post" action="" enctype="multipart/form-data">
+
+
+        <tr>
+            <th colspan='1'>État</th>
+            <td colspan='1'>
+
+            </td>
+        </tr>
+        <tr>
+            <th colspan='1'>Commande</th>
+            <td>
+                <div class="form-group">
+
+                    <select id="commande" name="commande">
+                        <option value="">--</option>
+
+                        <option value="0">selected
+                            Validée
+                        </option>
+
+                        <option value="1">selected
+                            Annulée
+                        </option>
+
+                        <option value="2">selected
+                            Retardée
+                        </option>
+
+                    </select>
+                </div>
+            </td>
+            <td><input type="hidden" name="id" value="" />
+                <input type="hidden" name="MM_update2" value="form1" />
+                <button type="submit">Modifier</button>
+    </form>
+
+
+    <a>Livraison</a>
+
+    <table style='border-collapse: collapse' cellpadding='7'>";
+        <tr>
+            <th><strong>Vendeur</strong></th>
+            <th><strong>N° Envoi</strong></th>
+            <th><strong>Livreur</strong></th>
+            <th><strong>Commentaire</strong></th>
+            <th><strong>Produit</strong></th>
+        </tr>
+
+        <form method="post" action="" enctype="multipart/form-data">
+            <td> <select id="entreprise" name="entreprise" required>
+
+
+                </select></td>
+            <td><input style="background-color: white !important; color: black !important;" type="text" id="num_envoi"
+                    name="num_envoi" placeholder="" value="" required> </td>
+            <td>
+
+                <select id="livreur" name="livreur" required>
+
+                    <option value="Chronopost">selected
+                        Chronopost
+                    </option>
+
+                    <option value="Colissimo">selected
+                        Colissimo
+                    </option>
+
+                    <option value="UPS">selected
+                        UPS
+                    </option>
+
+                </select>
+            </td>
+            <td><input style="background-color: white !important; color: black !important;" type="text" id="commentaire"
+                    name="commentaire" placeholder="" value=""> </td>
+            <td>
+                <select id="id_detailsCommande" name="id_detailsCommande" required>
+
+                </select>
+            </td>
+            <td><input type="hidden" name="id" value="" />
+
+
+                <input type="hidden" name="MM_addLivraison" value="form3" />
+                <button type="submit">Ajouter</button>
+        </form>
+
+
+        <form method="post" action="" enctype="multipart/form-data">
+            <tr>
+                <td><select id="vendeur" name="vendeur" required></select></td>
+            </tr>
+        </form>
+    </table>
+
+    <!-------->
+
+
+    <td><input style="background-color: white !important; color: black !important;" type="text" id="num_envoi"
+            name="num_envoi" placeholder="" value="" required> </td>
+    <td><select id="livreur" name="livreur" required>
+
+            <option value="Chronopost">
+                selected
+                Chronopost
+            </option>
+
+            <option value="Colissimo">
+                selected
+                Colissimo
+            </option>
+
+            <option value="UPS">selected
+                UPS
+            </option>
+
+        </select></td>
+    <td><input style="background-color: white !important; color: black !important;" type="text" id="commentaire"
+            name="commentaire" placeholder="" value=""> </td>
+    <td>
+        <select id="id_detailsCommande" name="id_detailsCommande" required>
+
+        </select>
+    </td>
+    <td><a routerLink="">suppr.</a>
+
+    </td>
+    <td><input type="hidden" name="id_livraison" value="<?php echo $row_rs_livraison['id']; ?>" />
+        <input type="hidden" name="MM_UpdateLivraison" value="form4" />
+        <button type="submit">Modifier</button>
+</table>
+
+//--------------------------------- AFFICHAGE HTML ---------------------------------//
+
+<a>Détail</a>
+
+<table style='border-collapse: collapse' cellpadding='7'>
+    <tr>
+        <th><strong>Produits</strong></th>
+        <th><strong>Quantité</strong></th>
+        <th><strong>Prix Unitaire</strong></th>
+        <th><strong>Vendeur</strong></th>
+        <th><strong>Masquer</strong></th>
+        <th><strong>Problème</strong></th>
+    </tr>
+
+    <form method="post" action="" enctype="multipart/form-data">
+
+        <div class="form-group"> <select id="masquer" name="masquer">
+
+
+                <option value="0">selected
+                    Non
+                </option>
+
+                <option value="1">selected
+                    Oui
+                </option>
+
+            </select></div>
+
+
+        <td><select id="probleme" name="probleme">
+
+                <option value="0">
+                    Aucun
+                </option>
+
+                <option value="1">
+                    Rupture de stock
+                </option>
+
+                <option value="2">
+                    Plus vendu
+                </option>
+
+
+            </select></td>
+        <td><input type="hidden" name="id" value="" />
+            <input type="hidden" name="id_pro" value="" />
+
+            <input type="hidden" name="MM_updateDetail" value="form2" />
+            <button type="submit">Modifier</button>
+    </form>
+
+    $tva = $row_rs_commande2['prixTTC'] - $row_rs_commande2['prixHT'];
+    echo "<tr>
+        <th colspan='1'>Total HT</th>
+        <td colspan='6'><strong>" . $row_rs_commande2['prixHT'] . " euros</strong></td>
+    </tr>
+    echo "<tr>
+        <th colspan='1'>Total TTC</th>
+        <td colspan='6'><strong>" . $row_rs_commande2['prixTTC'] . " euros</strong></td>
+    </tr>
+    echo "<tr>
+        <th colspan='1'>Total TVA</th>
+        <td colspan='6'><strong>" . $tva . " euros</strong></td>
+    </tr>
+    echo "
+</table><br>
+
+
+<button routerLink="/commandes" class="btn btn-warning">Retour à la liste</button>

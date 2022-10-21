@@ -1,0 +1,65 @@
+<h2 class="inner-tittle">Gestion des articles</h2>
+<div class="graph-form">
+    <div class="form-body">
+
+        <br><br>
+        <form method="post" action="" enctype="multipart/form-data">
+
+
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="titre">Titre</label>
+                    <input type="text" class="form-control" id="titre" name="titre" placeholder="Titre" value="">
+                </div>
+                <div class="form-group">
+                    <label for="accroche">Accroche</label>
+                    <textarea class="form-control" id="accroche" name="accroche" placeholder="Texte"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="texte">Texte</label>
+                    <textarea class="form-control" id="texte" name="texte" placeholder="Texte"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="Logo">Illustration</label>
+                    <input type="file" id="Logo" name="fichier" accept="image/*">
+
+                    <a href="javascript:void(0);" onclick='return false;' class="info"><img src="" alt="" width="70%"
+                            style="margin:10px 0px;" /></a>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="actuFlash">Actus Flash</label>
+                    <select class="form-control" id="actuFlash" name="actuFlash" style="padding: 0px 12px">
+
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="newsletter">Newsletter liée</label>
+
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <h3>Tous les articles</h3>
+                <table>
+
+                    <tr>
+
+                        <td><a routerLink="/articlesModif" class="btn">Modifier</a></td>
+                        <td><a routerLink="" class="btn">Supprimer</a></td>
+                    <tr>
+
+                </table>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <input type="hidden" name="MM_update" value="form1" />
+            <button type="submit" class="btn btn-default">Créer un article</button>
+        </form>
+    </div>
+
+</div>

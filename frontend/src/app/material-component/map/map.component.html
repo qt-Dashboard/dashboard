@@ -1,12 +1,15 @@
-<div class="map-container" id="map">
 
-<!-- <div class="marker"></div> -->
+<div class="map-container" id="map">
 </div>
 
+<select [(ngModel)]="selectedOption">
+  <option *ngFor="let o of options">
+     {{o.name}}
+  </option>
+</select>
 
+<button (click)="print()">Click me</button>
 
-<!-- dans la div map-container -->
-<!--</div> leaflet
-  [leafletOptions]="options"
-  (leafletMapReady)="onMapReady($event)"
-  (leafletClick)="mapClicked($event)"-->
+<p>Selected option: {{ selectedOption }}</p>
+<p>Button output: {{ printedOption }}</p>
+

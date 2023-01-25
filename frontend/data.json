@@ -20,6 +20,7 @@
     {
       "id": 1,
       "name": "home",
+      "category": "maison",
       "coordinates": [
         49.02275321906884,
         1.1517542134257543
@@ -30,7 +31,8 @@
     },
     {
       "id": 2,
-      "name": "pharmacie",
+      "name": "lieu medical",
+      "category": "pharmacie",
       "coordinates": [
         45.02275321906884,
         1.3517542134257543

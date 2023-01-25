@@ -3,8 +3,9 @@ import { MapService } from 'src/app/services/map.service';
 import * as Leaflet from 'leaflet';
 import * as L from 'leaflet';
 import 'leaflet-routing-machine';
-import "leaflet-control-geocoder";
+import { Geocoder, geocoders } from 'leaflet-control-geocoder';
 import "lrm-graphhopper";
+import { HttpClient } from '@angular/common/http';
 
 Leaflet.Icon.Default.imagePath = 'assets/';
 
@@ -18,6 +19,25 @@ Leaflet.Icon.Default.imagePath = 'assets/';
 export class MapComponent implements OnInit {
 
   baseUrl: string = 'http://localhost:3000/mapData';
+
+  selectedOption!: string;
+  printedOption!: string;
+
+  options = [
+    { name: "Maison", value: "maison" },
+    { name: "Medical", value: "pharmacie" }
+  ]
+
+  print() {
+    this.printedOption = this.selectedOption;
+    if (this.printedOption === "Maison") {
+      // let mymap = (document.getElementById('map') as HTMLDivElement);
+      
+      // this.mapService.makeMarkers(<any>mymap);
+    }
+
+  }
+
 
   ngOnInit() {
 
@@ -51,35 +71,45 @@ export class MapComponent implements OnInit {
           serviceUrl: `http://router.project-osrm.org/route/v1/`,
           language: 'fr'
         }),
-        routeWhileDragging: true,
+        addWaypoints: true,
+        routeWhileDragging: false,
         showAlternatives: true,
         fitSelectedRoutes: false,
         show: false,
-        addWaypoints: false,
+
         waypoints: [
           L.latLng(coords.latitude, coords.longitude),
           L.latLng(49.02275321906884, 1.1517542134257543)
         ],
-        plan: L.Routing.plan([
-          L.latLng(coords.latitude, coords.longitude),
-          L.latLng(49.02275321906884, 1.1517542134257543)
-        ], {
-          createMarker: function (i, wp) {
-            return L.marker(wp.latLng, {
-              draggable: false
-            });
-          }
-        }),
-        // geocoder: (L.Control as any).Geocoder.nominatim(),
+        // plan: L.Routing.plan([
+        //   L.latLng(coords.latitude, coords.longitude),
+        //   L.latLng(49.02275321906884, 1.1517542134257543)
+        // ], 
+
+        // {
+        //   createMarker: function (i, wp) {
+        //     return L.marker(wp.latLng, {
+        //       draggable: false
+        //     });
+        //   }
+        // }
+        // ),
+        geocoder: (L.Control as any).Geocoder.nominatim()
 
       }).addTo(mymap);
 
+      new Geocoder({ position: 'topleft' }).addTo(mymap);
 
       let marker = L.marker(<any>latLong).addTo(mymap);
 
       marker.bindPopup('<b>Vous etes ici!</b>').openPopup();
 
-      this.mapService.makeMarkers(mymap);
+
+      // let home = (document.getElementById("maison") as HTMLOptionElement).value;
+      // let medical = (document.getElementById("medical") as HTMLOptionElement).value;
+
+        this.mapService.makeMarkers(mymap);
+
 
     });
 
@@ -97,6 +127,7 @@ export class MapComponent implements OnInit {
       );
       if (position.coords.latitude === desLat) {
         navigator.geolocation.clearWatch(id);
+
       }
     }, (err) => {
       console.log(err);
@@ -110,7 +141,8 @@ export class MapComponent implements OnInit {
   }
 
 
-  constructor(private mapService: MapService) {
+  constructor(private mapService: MapService, private http: HttpClient) {
+
 
   }
 

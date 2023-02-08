@@ -14,6 +14,7 @@ const MENUITEMS = [
   { state: 'utiles', type: 'link', name: 'Informations utiles', icon: 'info'},
   { state: 'users', type: 'link', name: 'Users', icon: 'supervisor_account'},
   { state: 'test', type: 'link', name: 'Test', icon: 'map'},
+  { state: 'annuaire', type: 'link', name: 'Annuaire', icon: 'menu_book'},
   // { state: 'zone1', type: 'link', name: 'Zone annonceurs Slider', icon: ''},
   // { state: 'zone2', type: 'link', name: 'Zone annonc. bannières', icon: ''},
   // { state: 'zone3', type: 'link', name: 'Zone accroche', icon: ''},

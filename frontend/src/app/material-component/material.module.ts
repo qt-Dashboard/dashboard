@@ -116,7 +116,8 @@ import { CatFormComponent } from './test/cat-form/cat-form.component';
 import { CatListComponent } from './test/cat-list/cat-list.component';
 import { MarkerListComponent } from './test/marker-list/marker-list.component';
 import { MarkerFormComponent } from './test/marker-form/marker-form.component';
-
+import { PoiService } from '../services/poi.service';
+import { AnnuaireComponent } from './annuaire/annuaire.component';
 
 @NgModule({
   imports: [
@@ -132,7 +133,7 @@ import { MarkerFormComponent } from './test/marker-form/marker-form.component';
     HttpClientModule
   ],
   providers: [
-    MapService
+    PoiService
   ],
   entryComponents: [DialogOverviewExampleDialogComponent],
   declarations: [
@@ -242,6 +243,7 @@ import { MarkerFormComponent } from './test/marker-form/marker-form.component';
     CatListComponent,
     MarkerListComponent,
     MarkerFormComponent,
+    AnnuaireComponent,
     
     ]
 })

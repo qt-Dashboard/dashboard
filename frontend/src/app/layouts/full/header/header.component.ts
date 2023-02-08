@@ -51,7 +51,6 @@ export class AppHeaderComponent {
     this.authService.login(password, email).subscribe({
       next: (data) => {
         const fullname = `${data.message.lastName} ${data.message.firstName}`
-       
         this.tokenStorage.saveToken(data.message.token);
         this.tokenStorage.saveUser(fullname);
         this.tokenStorage.saveRole(data.message.role);

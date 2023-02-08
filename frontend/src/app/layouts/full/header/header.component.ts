@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { User } from 'src/app/models/user.model';
 import {FormBuilder, FormControl} from '@angular/forms';
+import { Login } from 'src/app/models/login.model';
 
 @Component({
   selector: 'app-header',
@@ -13,15 +14,17 @@ export class AppHeaderComponent {
   email!: string;
   password!: string;
 
-  form: any = {
-    email: null,
-    password: null,
+  form: Login = {
+    email: '',
+    password: '',
   }
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  admin: boolean = false;
+  isAdmin: boolean = false;
+  isModerator: boolean = false;
   user: any = {};
+  role!: string | null; 
 
   constructor (
     private authService: AuthService,
@@ -31,30 +34,34 @@ export class AppHeaderComponent {
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
-      
-      this.admin = this.tokenStorage.getUser().admin;
-      // this.moderator = this.tokenStorage.getUser().moderator; TODO à ajouter !!!
-      this.user = this.tokenStorage.getUser();      
+      this.role = this.tokenStorage.getRole();
+      if (this.role === 'admin') {
+        this.isAdmin = true;
+        this.isModerator = true;
+      }
+      if (this.role === 'moderator') {
+        this.isModerator = true;
+      }
+      this.user = this.tokenStorage.getUser();            
     }
   }
 
   onSubmit(): void {
     const {email, password} = this.form;
-    this.authService.login(email, password).subscribe({
+    this.authService.login(password, email).subscribe({
       next: (data) => {
-        console.log(data);
-        
+        const fullname = `${data.message.lastName} ${data.message.firstName}`
+       
         this.tokenStorage.saveToken(data.message.token);
-        this.tokenStorage.saveUser(`${data.message.lastName} ${data.message.firstName}`);
-
+        this.tokenStorage.saveUser(fullname);
+        this.tokenStorage.saveRole(data.message.role);
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.admin = this.tokenStorage.getUser().admin;
         window.location.reload();
       },
       error: (err) => {
-        this.errorMessage = err.error.message;
         this.isLoginFailed = true;
+        this.errorMessage = err.error.message;
       }
     })
   }

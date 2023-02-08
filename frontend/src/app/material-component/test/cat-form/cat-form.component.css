@@ -1,0 +1,30 @@
+.form {
+    min-width: 150px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.admin-label {
+    margin-right: 1rem;
+}
+
+.admin-label-div {
+    margin-bottom: 1rem;
+}
+
+.button-spacer {
+    flex: 1 1 auto;
+}
+
+.form-button {
+    margin-right: .5rem;
+}
+  
+mat-label.label-input-file {
+    margin-right: .5rem;
+    align-self: center;
+}
+
+.file-input {
+    display: none;
+}

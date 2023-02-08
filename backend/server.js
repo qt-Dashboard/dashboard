@@ -3,6 +3,8 @@ const morgan = require('morgan');
 const cors = require('cors');
 
 const userRoute = require('./routes/user.routes');
+const categoryRoute = require('./routes/category.routes');
+const markerRoute = require('./routes/marker.routes')
 
 // Initialization
 const app = express();
@@ -18,5 +20,7 @@ app.use(cors());
 
 // Routes
 app.use('/user', userRoute);
+app.use('/category', categoryRoute);
+app.use('/marker', markerRoute);
 
 module.exports = app;

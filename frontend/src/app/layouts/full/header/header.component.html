@@ -3,12 +3,21 @@
 <!-- Profile - style you can find in header.scss -->
 <!-- ============================================================== -->
 <div *ngIf="!isLoggedIn">
-    <form class="d-flex" name="form">
-        <input type="email" class="form-control form-control-sm me-2" name="email" [(ngModel)]="form.email" required #email="ngModel" placeholder="Email">
-        <input type="password" class="form-control form-control-sm me-2" name="password" [(ngModel)]="form.password" required #password="ngModel" placeholder="Mot de passe">
-        <button mat-raised-button color="accent" class="form-button" aria-label="Se connecter" (click)="onSubmit()">
+    <form class="d-flex" name="form" (ngSubmit)="onSubmit()">
+        <div class="form-group me-2">
+            <div *ngIf="isLoginFailed" class="form-control form-control-md form-control-plaintext readonly text-warning fs-6">{{errorMessage}}</div>
+        </div>
+        <div class="form-group me-2">
+            <input type="email" class="form-control form-control-md" name="email" [(ngModel)]="form.email" #email="ngModel" placeholder="Email" required>
+        </div>
+        <div class="form-group me-2">
+            <input type="password" class="form-control form-control-md" name="password" [(ngModel)]="form.password" #password="ngModel" placeholder="Mot de passe" required>
+        </div>
+        <div class="form-group">
+            <button mat-raised-button color="accent" class="form-button" aria-label="Se connecter">
             <mat-icon>forward</mat-icon>
         </button>
+        </div>
 </form>
 </div>
 
@@ -19,10 +28,10 @@
     </div>
 
     <mat-menu #profile="matMenu" class="mymegamenu">
-        <div *ngIf="isLoggedIn">
-            <button mat-menu-item>
+        <div>
+            <button mat-menu-item *ngIf="isAdmin">
                 <mat-icon>settings</mat-icon> Settings </button>
-            <button mat-menu-item>
+            <button mat-menu-item *ngIf="isModerator">
                 <mat-icon>account_box</mat-icon> Profile </button>
             <button mat-menu-item>
                 <mat-icon>notifications_off</mat-icon> Disable notifications </button>

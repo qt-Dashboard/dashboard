@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UsersModifComponent } from './users-modif.component';
+import { CatListComponent } from './cat-list.component';
 
-describe('UsersModifComponent', () => {
-  let component: UsersModifComponent;
-  let fixture: ComponentFixture<UsersModifComponent>;
+describe('CatListComponent', () => {
+  let component: CatListComponent;
+  let fixture: ComponentFixture<CatListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UsersModifComponent ]
+      declarations: [ CatListComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UsersModifComponent);
+    fixture = TestBed.createComponent(CatListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

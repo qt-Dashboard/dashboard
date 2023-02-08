@@ -1,0 +1,73 @@
+<div class="container text-center grid">
+    <div class="col-12">
+        <h4 class="me-3">Liste des marqueurs</h4>
+         
+        <div class="btns">
+            <div>
+                <button mat-raised-button color="accent" class="form-button undo" aria-label="Go back" (click)="onCancel()">
+                    <mat-icon>undo</mat-icon>
+                </button>
+            </div>
+            <div>
+                <button mat-raised-button color="primary" routerLink="../marker-form" class="buttonAdd ms-5">
+                    Ajouter un marqueur
+                </button>
+            </div>
+            
+        </div>
+        <div>
+            <table mat-table [dataSource]="markers" matSort matSortDisableClear (matSortChange)="sortData($event)" class="mat-elevation-z8" >
+                <!-- Id Column -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                    <td mat-cell *matCellDef="let marker"> {{marker._id}} </td>
+                </ng-container>
+
+                <!-- name Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
+                    <td mat-cell *matCellDef="let marker"> {{marker.name}} </td>
+                </ng-container>
+
+                <!-- longitude Column -->
+                <ng-container matColumnDef="lon">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Longitude </th>
+                    <td mat-cell *matCellDef="let marker"> {{marker.lon}} </td>
+                </ng-container>
+
+                <!-- latitude Column -->
+                <ng-container matColumnDef="lat">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Latitude </th>
+                    <td mat-cell *matCellDef="let marker"> {{marker.lat}} </td>
+                </ng-container>
+
+                <!-- categoryId Column -->
+                <ng-container matColumnDef="categoryId">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Catégorie </th>
+                    <td mat-cell *matCellDef="let marker"> {{marker.categoryId.name}} </td>
+                </ng-container>
+
+                <!-- Update Column -->
+                <ng-container matColumnDef="iconUpd">
+                    <th mat-header-cell *matHeaderCellDef class="nobg"></th>
+                    <td mat-cell *matCellDef="let marker" (click)="updateMarker(marker._id)">
+                        <mat-icon color="accent" class="icon-link">create</mat-icon>
+                    </td>
+                </ng-container>
+
+                <!-- Delete Column -->
+                <ng-container matColumnDef="iconDel">
+                    <th mat-header-cell *matHeaderCellDef class="nobg"></th>
+                    <td mat-cell *matCellDef="let marker">
+                        <span (click)="openDialog(marker._id)">
+                            <mat-icon color="warn" class="icon-link">delete_forever</mat-icon>
+                            </span>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+</div>
+

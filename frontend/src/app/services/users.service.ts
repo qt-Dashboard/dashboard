@@ -22,15 +22,13 @@ export class UsersService {
     return this.http.get<User>(`${this.apiURLUsers}/update/${userId}`);
   }
 
-  createUser(user: User): Observable<User> {
-    console.log(user, `${this.apiURLUsers}/register`);
+  createUser(user: User): Observable<User> {    
+    console.log(user);
     
-    return this.http.post<User>(`http://localhost:3300/user/register`, user);
+    return this.http.post<User>(`${this.apiURLUsers}/register`, user);
   }
 
   updateUser(user: User): Observable<User> {
-    console.log(user);
-
     return this.http.patch<User>(`${this.apiURLUsers}/update/${user._id}`, user);
   }
 

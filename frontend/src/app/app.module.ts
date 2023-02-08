@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { CommonModule, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { AppRoutes } from './app.routing';
@@ -38,6 +38,7 @@ import { MaterialComponentsModule } from './material-component/material.module';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { PoiService } from './services/poi.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,6 @@ import { PoiService } from './services/poi.service';
     BrowserModule,
     DemoMaterialModule,
     BrowserAnimationsModule,
-    FormsModule,
     FlexLayoutModule,
     HttpClientModule,
     SharedModule,
@@ -66,7 +66,6 @@ import { PoiService } from './services/poi.service';
     MatFormFieldModule,
     MatOptionModule,
     MatCardModule,
-    MaterialComponentsModule,
     NgxMaskModule.forRoot(),
     MatTableModule,
     MatIconModule,
@@ -75,6 +74,9 @@ import { PoiService } from './services/poi.service';
     MatToolbarModule,
     MatSortModule,
     LeafletModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialComponentsModule
     
   ],
   providers: [

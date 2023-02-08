@@ -6,6 +6,7 @@ import { User } from 'src/app/models/user.model';
 import { UsersService } from 'src/app/services/users.service';
 import { timer } from 'rxjs';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 interface Role {
   value: string;
@@ -23,6 +24,8 @@ export class UsersFormComponent implements OnInit {
   isSubmitted = false;
   isEditMode = false;
   currentUserId!: string;
+  isAdmin: boolean = false;
+  role!: string | null; 
 
   roles: Role[] = [
     {value: 'admin', viewValue: 'administrateur'},
@@ -39,26 +42,28 @@ export class UsersFormComponent implements OnInit {
     private location: Location,
     private route: ActivatedRoute,
     private snackBar: MatSnackBar,
+    private tokenStorage: TokenStorageService,
   ) {}
 
   ngOnInit(): void {
     this.initUserForm();
     this.checkEditMode();
+    this.checkIsAdmin();
   }
 
   private initUserForm() {
     this.form = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      role: ['', Validators.required],
+      role: ['user', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
   }
 
   private addUser(user: User) {
-    this.usersService.createUser(user).subscribe(
-      () => {
+    this.usersService.createUser(user).subscribe({
+      next: () => {
         this.snackBar.open("L'utilisateur a bien été créé", '', {
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
@@ -69,18 +74,18 @@ export class UsersFormComponent implements OnInit {
             this.location.back();
           });
       },
-      () => {
+      error: () => {
         this.snackBar.open("ERREUR : L'utilisateur n'a pas pu être créé", '', {
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
         });
       }
-    );
+    });
   }
 
   private modifyUser(user: User) {
-    this.usersService.updateUser(user).subscribe(
-      () => {
+    this.usersService.updateUser(user).subscribe({
+      next: () => {
         this.snackBar.open("L'utilisateur a bien été mis à jour", '', {
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
@@ -91,13 +96,13 @@ export class UsersFormComponent implements OnInit {
             this.location.back();
           });
       },
-      () => {
+      error: () => {
         this.snackBar.open("ERREUR : L'utilisateur n'a pas été mis à jour", '', {
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
         });
       }
-    );
+    });
   }
 
   private checkEditMode() {
@@ -113,6 +118,15 @@ export class UsersFormComponent implements OnInit {
         });
       }
     });
+  }
+
+  private checkIsAdmin() {
+    if (this.tokenStorage.getToken()) {
+      this.role = this.tokenStorage.getRole();
+      if (this.role === 'admin') {
+        this.isAdmin = true;
+      }
+    }
   }
 
   onSubmit() {

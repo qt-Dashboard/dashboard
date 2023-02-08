@@ -44,7 +44,7 @@ export class UsersComponent implements OnInit {
         this.usersService.deleteUser(userId).subscribe({
           next: () => this.getUsers()
         }),
-        this.snackBar.open("Vous avez bien supprimé l'utilisateur", '', {
+        this.snackBar.open("Vous avez bien supprimé l'utisateur", '', {
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
         });
@@ -83,7 +83,7 @@ export class UsersComponent implements OnInit {
         case 'firstName':
           return compare(a.lastName.toLowerCase(), b.lastName.toLowerCase(), isAsc);
         case 'role':
-          return compare(a.role.toLowerCase(), b.role.toLowerCase(), isAsc);
+          return compare(a.role?.toLowerCase(), b.role?.toLowerCase(), isAsc);
         case 'email':
           return compare(a.email.toLowerCase(), b.email.toLowerCase(), isAsc);
         default:

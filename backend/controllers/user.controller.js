@@ -149,9 +149,9 @@ userController.login = async (req, res) => {
         const user = await User.findOne({email: email});
         if (!user) {
             res.status(400).json({message: `L'utilisateur n'existe pas !`});
-        };
+        }
 
-        const isMatch = bcrypt.compare(password, user.password);
+        const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             res.status(400).json({message: `Mot de passe incorrect !`});
         };

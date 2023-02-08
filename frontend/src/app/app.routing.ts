@@ -69,6 +69,12 @@ import { SliderComponent } from './material-component/slider/slider.component';
 import { SnackbarComponent } from './material-component/snackbar/snackbar.component';
 import { StepperComponent } from './material-component/stepper/stepper.component';
 import { TabsComponent } from './material-component/tabs/tabs.component';
+import { CatFormComponent } from './material-component/test/cat-form/cat-form.component';
+import { CatListComponent } from './material-component/test/cat-list/cat-list.component';
+import { MarkerFormComponent } from './material-component/test/marker-form/marker-form.component';
+import { MarkerListComponent } from './material-component/test/marker-list/marker-list.component';
+import { TestFormComponent } from './material-component/test/test-form/test-form.component';
+import { TestComponent } from './material-component/test/test.component';
 import { ToolbarComponent } from './material-component/toolbar/toolbar.component';
 import { ToolsComponent } from './material-component/tools/tools.component';
 import { TutosAjoutComponent } from './material-component/tutos/tutos-ajout/tutos-ajout.component';
@@ -458,16 +464,16 @@ export const AppRoutes: Routes = [
         component: MembresModifComponent
       },
       {
-      path: 'users',
-      component: UsersComponent
+        path: 'users',
+        component: UsersComponent
       },
       {
-      path: 'users/form',
-      component: UsersFormComponent
+        path: 'users/form',
+        component: UsersFormComponent
       },
       {
-      path: 'users/form/:id',
-      component: UsersFormComponent
+        path: 'users/form/:id',
+        component: UsersFormComponent
       },
       {
         path: 'tools',
@@ -477,6 +483,38 @@ export const AppRoutes: Routes = [
         path: 'map',
         component: MapComponent
       },
+      {
+        path: 'test',
+        component: TestComponent
+      },
+      {
+        path: 'form',
+        component: TestFormComponent
+      },
+      {
+        path: 'cat-form',
+        component: CatFormComponent
+      },
+      {
+        path: 'cat-form/:id',
+        component: CatFormComponent
+      },
+      {
+        path: 'cat-list',
+        component: CatListComponent
+      },
+      {
+        path: 'marker-form',
+        component: MarkerFormComponent
+      },
+      {
+        path: 'marker-form/:id',
+        component: MarkerFormComponent
+      },
+      {
+        path: 'marker-list',
+        component: MarkerListComponent
+      }, 
       {
         path: 'annuaire',
         component: AnnuaireComponent

@@ -100,8 +100,6 @@ import { PartenairesModifComponent } from './partenaires/partenaires-modif/parte
 import { MembresComponent } from './membres/membres.component';
 import { MembresAjoutComponent } from './membres/membres-ajout/membres-ajout.component';
 import { MembresModifComponent } from './membres/membres-modif/membres-modif.component';
-import { UsersAjoutComponent } from './users/users-ajout/users-ajout.component';
-import { UsersModifComponent } from './users/users-modif/users-modif.component';
 import { UsersFormComponent } from './users/users-form/users-form.component';
 import { UsersComponent } from './users/users.component';
 import { ToolsComponent } from './tools/tools.component';
@@ -111,9 +109,15 @@ import { FileDragNDropDirective } from './upload/file-drag-n-drop.directive';
 import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.component';
 import { MapComponent } from './map/map.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { MapService } from '../services/map.service';
+import { TestComponent } from './test/test.component';
+import { TestFormComponent } from './test/test-form/test-form.component';
+import { CatFormComponent } from './test/cat-form/cat-form.component';
+import { CatListComponent } from './test/cat-list/cat-list.component';
+import { MarkerListComponent } from './test/marker-list/marker-list.component';
+import { MarkerFormComponent } from './test/marker-form/marker-form.component';
 import { PoiService } from '../services/poi.service';
 import { AnnuaireComponent } from './annuaire/annuaire.component';
-
 
 @NgModule({
   imports: [
@@ -223,8 +227,6 @@ import { AnnuaireComponent } from './annuaire/annuaire.component';
     MembresAjoutComponent,
     MembresModifComponent,
     UsersComponent,
-    UsersAjoutComponent,
-    UsersModifComponent,
     UsersFormComponent,
     UsersComponent,
     ToolsComponent,
@@ -235,6 +237,12 @@ import { AnnuaireComponent } from './annuaire/annuaire.component';
     ToolsComponent,
     DialogConfirmComponent,
     MapComponent,
+    TestComponent,
+    TestFormComponent,
+    CatFormComponent,
+    CatListComponent,
+    MarkerListComponent,
+    MarkerFormComponent,
     AnnuaireComponent,
     
     ]

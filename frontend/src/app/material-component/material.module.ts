@@ -111,7 +111,8 @@ import { FileDragNDropDirective } from './upload/file-drag-n-drop.directive';
 import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.component';
 import { MapComponent } from './map/map.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { MapService } from '../services/map.service';
+import { PoiService } from '../services/poi.service';
+import { AnnuaireComponent } from './annuaire/annuaire.component';
 
 
 @NgModule({
@@ -128,7 +129,7 @@ import { MapService } from '../services/map.service';
     HttpClientModule
   ],
   providers: [
-    MapService
+    PoiService
   ],
   entryComponents: [DialogOverviewExampleDialogComponent],
   declarations: [
@@ -234,6 +235,7 @@ import { MapService } from '../services/map.service';
     ToolsComponent,
     DialogConfirmComponent,
     MapComponent,
+    AnnuaireComponent,
     
     ]
 })

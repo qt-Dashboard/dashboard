@@ -1,0 +1,21 @@
+.icon-link {
+    cursor: pointer;
+}
+
+:host ::ng-deep .mat-sort-header-container {
+    display: flex;
+    justify-content: center;
+ }
+ 
+table {
+    width: 100%;
+}
+
+tr:hover, .nobg:hover {
+    background-color: #d3d3d3;
+}
+
+th:hover {
+    background-color: #ffffff;
+}
+

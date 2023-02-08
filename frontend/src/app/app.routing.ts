@@ -2,6 +2,7 @@ import { TooltipComponent } from '@angular/material/tooltip';
 import { Routes } from '@angular/router';
 
 import { FullComponent } from './layouts/full/full.component';
+import { AnnuaireComponent } from './material-component/annuaire/annuaire.component';
 import { ArticlesComponent } from './material-component/articles/articles.component';
 import { BannersCategoryAjoutComponent } from './material-component/banners-category/banners-category-ajout/banners-category-ajout.component';
 import { BannersCategoryModifComponent } from './material-component/banners-category/banners-category-modif/banners-category-modif.component';
@@ -475,6 +476,10 @@ export const AppRoutes: Routes = [
       {
         path: 'map',
         component: MapComponent
+      },
+      {
+        path: 'annuaire',
+        component: AnnuaireComponent
       }
     ]
   },

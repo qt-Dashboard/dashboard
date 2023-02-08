@@ -42,7 +42,6 @@ export class AppHeaderComponent {
     const {email, password} = this.form;
     this.authService.login(email, password).subscribe({
       next: (data) => {
-        console.log(data);
         
         this.tokenStorage.saveToken(data.message.token);
         this.tokenStorage.saveUser(`${data.message.lastName} ${data.message.firstName}`);

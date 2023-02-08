@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -37,7 +36,7 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MaterialComponentsModule } from './material-component/material.module';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { MapService } from './services/map.service';
+import { PoiService } from './services/poi.service';
 
 @NgModule({
   declarations: [
@@ -92,7 +91,7 @@ import { MapService } from './services/map.service';
         duration: 3000
       }
     },
-    MapService
+    PoiService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

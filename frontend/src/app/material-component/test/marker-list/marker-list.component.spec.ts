@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UsersAjoutComponent } from './users-ajout.component';
+import { MarkerListComponent } from './marker-list.component';
 
-describe('UsersAjoutComponent', () => {
-  let component: UsersAjoutComponent;
-  let fixture: ComponentFixture<UsersAjoutComponent>;
+describe('MarkerListComponent', () => {
+  let component: MarkerListComponent;
+  let fixture: ComponentFixture<MarkerListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UsersAjoutComponent ]
+      declarations: [ MarkerListComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UsersAjoutComponent);
+    fixture = TestBed.createComponent(MarkerListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

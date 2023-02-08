@@ -1,4 +1,4 @@
-<mat-card >
+<mat-card>
     <div class="grid mb-5">
         <div class="col-12">
             <mat-toolbar color="primary">
@@ -18,33 +18,33 @@
         </div>
     </div>
 </mat-card>
-<div class="grid mb-5">
+<div class="container text-center grid mb-5">
     <div class="col-12">
         <form [formGroup]="form" class="form">
             <mat-form-field appearance="fill">
                 <mat-label>Prénom</mat-label>
-                <input matInput type="text" formControlName="firstName" placeholder="Ex. Alain">
+                <input matInput type="text" formControlName="firstName" name="firstName" placeholder="Ex. Alain" required>
             </mat-form-field>
             <mat-form-field appearance="fill">
                 <mat-label>Nom</mat-label>
-                <input matInput type="text" formControlName="lastName" placeholder="Ex. Dupont">
+                <input matInput type="text" formControlName="lastName" name="lastName" placeholder="Ex. Dupont" required>
             </mat-form-field>
-            <mat-form-field appearance="fill">
+            <mat-form-field *ngIf="isAdmin" appearance="fill">
                 <mat-label>Rôle</mat-label>
                 <mat-select formControlName="role">
-                <mat-option *ngFor="let role of roles" [value]="role.value" >
-                    {{role.viewValue}}
-                </mat-option>
+                    <mat-option *ngFor="let role of roles" [value]="role.value">
+                        {{role.viewValue}}
+                    </mat-option>
                 </mat-select>
             </mat-form-field>
             <mat-form-field appearance="fill">
                 <mat-label>Email</mat-label>
-                <input matInput type="email" formControlName="email" placeholder="Ex. alain.dupont@mail.com">
+                <input matInput type="email" formControlName="email" name="email" placeholder="Ex. alain.dupont@mail.com" required>
             </mat-form-field>
             <div *ngIf="!isEditMode">
                 <mat-form-field appearance="fill">
                     <mat-label>Mot de passe</mat-label>
-                    <input matInput type="password" formControlName="password">
+                    <input matInput type="password" formControlName="password" name="password" required>
                 </mat-form-field>
             </div>
             

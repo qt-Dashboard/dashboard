@@ -10,6 +10,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-material-components/datetime-picker": "^9.0.0",
     "@angular/animations": "14.0.1",
     "@angular/cdk": "^14.0.1",
     "@angular/common": "14.0.1",
@@ -47,6 +48,7 @@
     "ng-apexcharts": "^1.7.1",
     "ngx-bootstrap": "^9.0.0",
     "ngx-mask": "^14.2.3",
+    "ngx-material-file-input": "^4.0.0",
     "rxjs": "^7.5.5",
     "rxjs-compat": "^6.6.7",
     "sass": "^1.52.3",

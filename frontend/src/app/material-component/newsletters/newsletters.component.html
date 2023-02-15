@@ -1,0 +1,55 @@
+<h2 class="inner-tittle">Gestion des newsletters</h2>
+<div class="graph-form">
+    <div class="form-body">
+
+        <br><br>
+        <form method="post" action="" enctype="multipart/form-data">
+
+
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="titre">Titre</label>
+                    <input type="text" class="form-control" id="titre" name="titre" placeholder="Titre" value="">
+                </div>
+                <div class="form-group">
+                    <label for="dateNewsletter">Date Newsletter</label>
+                    <input type="date" class="form-control" id="dateNewsletter" name="dateNewsletter"
+                        placeholder="jj/mm/aaaa" value="">
+                </div>
+
+                <div class="form-group">
+                    <label for="Logo">Illustration</label>
+                    <input type="file" id="Logo" name="fichier" accept="image/*">
+
+
+                    <a href="javascript:void(0);" onclick='return false;' class="info"><img src="" alt="" width="70%"
+                            style="margin:10px 0px;" /></a>
+
+                </div>
+                <input type="hidden" name="id" value="" />
+
+
+
+            </div>
+            <div class="col-md-6">
+                <h3>Toutes les newsletters</h3>
+                <table>
+
+                    <tr>
+
+                        <td><a routerLink="/newslettersModif" class="btn">Modifier</a></td>
+                        <td><a routerLink="" class="btn">Supprimer</a></td>
+                    <tr>
+
+                </table>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <input type="hidden" name="MM_update" value="form1" />
+            <button type="submit" class="btn btn-default">Créer une newsletter</button>
+        </form>
+    </div>
+
+</div>

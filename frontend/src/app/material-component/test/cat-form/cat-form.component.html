@@ -1,0 +1,44 @@
+<mat-card>
+    <div class="grid mb-5">
+        <div class="col-12">
+            <mat-toolbar color="primary">
+                <span *ngIf="!isEditMode">Ajouter une catégorie</span>
+                <span *ngIf="isEditMode">Editer une catégorie</span>
+                <span class="button-spacer"></span>
+                <button mat-raised-button *ngIf="isEditMode" color="accent" class="form-button" aria-label="Edit category" (click)="onSubmit()">
+                    Modifier <mat-icon>update</mat-icon>
+                </button>
+                <button mat-raised-button *ngIf="!isEditMode" color="accent" class="form-button" aria-label="Add category" (click)="onSubmit()">
+                    Créer<mat-icon>plus_one</mat-icon> 
+                </button>
+                <button mat-raised-button color="accent" class="form-button" aria-label="Go back" (click)="onCancel()">
+                    <mat-icon>undo</mat-icon>
+                </button>            
+            </mat-toolbar>
+        </div>
+    </div>
+</mat-card>
+<div class="container grid mb-5">
+    <div class="col-12">
+        <form [formGroup]="form" class="form">
+            <mat-form-field appearance="fill">
+                <mat-label>Nom</mat-label>
+                <input matInput type="text" formControlName="name" name="name" placeholder="Ex: Boulangerie" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Nom de la variable</mat-label>
+                <input matInput type="text" formControlName="variable" name="variable" placeholder="Ex. bakery (en minuscule et en camelCase)" required>
+            </mat-form-field>
+            <div class="d-flex">
+                <mat-label class="label-input-file">Choix du marqueur * :</mat-label>
+                <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+                <div class="file-upload">
+                    {{fileName || "Aucune image sélectionnée."}}
+                    <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
+                        <mat-icon>attach_file</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

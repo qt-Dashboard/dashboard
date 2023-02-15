@@ -1,0 +1,46 @@
+<mat-card>
+    <div class="grid mb-5">
+        <div class="col-12">
+            <mat-toolbar color="primary">
+                <span *ngIf="!isEditMode">Ajouter un marqueur</span>
+                <span *ngIf="isEditMode">Editer un marqueur</span>
+                <span class="button-spacer"></span>
+                <button mat-raised-button *ngIf="isEditMode" color="accent" class="form-button" aria-label="Edit marker" (click)="onSubmit()">
+                    Modifier <mat-icon>update</mat-icon>
+                </button>
+                <button mat-raised-button *ngIf="!isEditMode" color="accent" class="form-button" aria-label="Add marker" (click)="onSubmit()">
+                    Créer<mat-icon>plus_one</mat-icon> 
+                </button>
+                <button mat-raised-button color="accent" class="form-button" aria-label="Go back" (click)="onCancel()">
+                    <mat-icon>undo</mat-icon>
+                </button>            
+            </mat-toolbar>
+        </div>
+    </div>
+</mat-card>
+<div class="container grid mb-5">
+    <div class="col-12">
+        <form [formGroup]="form" class="form">
+            <mat-form-field appearance="fill">
+                <mat-label>Nom</mat-label>
+                <input matInput type="text" formControlName="name" name="name" placeholder="Ex: Boulangerie" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Longitude</mat-label>
+                <input matInput type="text" formControlName="lon" name="lon" placeholder="Ex. 14.13215431" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Latitude</mat-label>
+                <input matInput type="text" formControlName="lat" name="lat" placeholder="Ex. 1.151215135" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Catégorie</mat-label>
+                <mat-select formControlName="categoryId">
+                    <mat-option *ngFor="let category of categories" [value]="category._id" >
+                        {{category.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+    </div>
+</div>

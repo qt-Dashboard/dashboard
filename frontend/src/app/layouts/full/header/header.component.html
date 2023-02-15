@@ -1,0 +1,43 @@
+        
+<!-- ============================================================== -->
+<!-- Profile - style you can find in header.scss -->
+<!-- ============================================================== -->
+<div *ngIf="!isLoggedIn">
+    <form class="d-flex" name="form" (ngSubmit)="onSubmit()">
+        <div class="form-group me-2">
+            <div *ngIf="isLoginFailed" class="form-control form-control-md form-control-plaintext readonly text-warning fs-6">{{errorMessage}}</div>
+        </div>
+        <div class="form-group me-2">
+            <input type="email" class="form-control form-control-md" name="email" [(ngModel)]="form.email" #email="ngModel" placeholder="Email" required>
+        </div>
+        <div class="form-group me-2">
+            <input type="password" class="form-control form-control-md" name="password" [(ngModel)]="form.password" #password="ngModel" placeholder="Mot de passe" required>
+        </div>
+        <div class="form-group">
+            <button mat-raised-button color="accent" class="form-button" aria-label="Se connecter">
+            <mat-icon>forward</mat-icon>
+        </button>
+        </div>
+</form>
+</div>
+
+<div [matMenuTriggerFor]="profile" class="header-profile d-flex flex-row align-items-center">
+    <div *ngIf="isLoggedIn" class="d-flex">
+        <span class="header-name m-r-10 d-flex flex-column align-self-center" *ngIf="isLoggedIn">{{this.user}}</span>
+        <button mat-icon-button class="m-r-5"> <img src="assets/images/users/1.jpg" alt="user" class="profile-pic"> </button>
+    </div>
+
+    <mat-menu #profile="matMenu" class="mymegamenu">
+        <div>
+            <button mat-menu-item *ngIf="isAdmin">
+                <mat-icon>settings</mat-icon> Settings </button>
+            <button mat-menu-item *ngIf="isModerator">
+                <mat-icon>account_box</mat-icon> Profile </button>
+            <button mat-menu-item>
+                <mat-icon>notifications_off</mat-icon> Disable notifications </button>
+            <button mat-menu-item (click)="logOut()">
+                <mat-icon>exit_to_app</mat-icon> Sign Out </button>
+        </div>         
+    </mat-menu>
+</div>
+

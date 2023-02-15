@@ -1,0 +1,137 @@
+
+<div class="outter-wp">
+    <!--/sub-heard-part-->
+    <div class="tab-main">
+        <!--/tabs-inner-->
+        <div class="tab-inner">
+            <div id="tabs" class="tabs">
+                
+                <h2 class="inner-title">Informations utiles</h2>
+                <div class="graph-form">
+                    <div class="form-body">
+                        <form method="post" action="" enctype="multipart/form-data" class="row justify-content-center">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="nom">Nom de la société</label>
+                                    <input type="text" class="form-control" id="nom" name="nom" placeholder="O18Market"
+                                        value="" required>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="adresse">Adresse</label>
+                                    <input type="text" class="form-control" id="adresse" name="adresse"
+                                        placeholder="6 Rue MAURICE ROY" value="" required>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="zip">Code postal</label>
+                                    <input type="text" class="form-control" id="zip" name="zip"
+                                        placeholder="18000" value="" required pattern="[0-9]{5}">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="ville">Ville</label>
+                                    <input type="text" class="form-control" id="ville" name="ville" placeholder="BOURGES"
+                                        value="" required>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="tel">Téléphone</label>
+                                    <input type="tel" class="form-control" id="tel" name="tel" placeholder="0689399949"
+                                        value="" required pattern="0[1-9][0-9]{8}">
+                                </div>
+                                <div class="form-group mb-5">
+                                    <label for="email">Adresse Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="tomlebrun27@gmail.com"
+                                        value="" required>
+                                </div>
+                                <div class="">
+                                <h4 class="mb-3">Réseaux sociaux</h4>
+                                <div class="form-group mb-3">
+                                    <label for="facebook">Facebook</label>
+                                    <input type="url" class="form-control" id="facebook" name="facebook"
+                                        placeholder="https://www.facebook.com/zuck" value="">
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="twitter">Twitter</label>
+                                    <input type="url" class="form-control" id="twitter" name="twitter"
+                                        placeholder="https://twitter.com/elonmusk?lang=en" value="">
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="youtube">Youtube</label>
+                                    <input type="url" class="form-control" id="youtube" name="youtube"
+                                        placeholder="Youtube" value="">
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="pinterest">Pinterest</label>
+                                    <input type="url" class="form-control" id="pinterest" name="pinterest"
+                                        placeholder="Pinterest" value="">
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="instagram">Instagram</label>
+                                    <input type="url" class="form-control" id="instagram" name="instagram"
+                                        placeholder="https://www.instagram.com/jeffbezos/" value="">
+                                </div>
+
+
+
+                                <div class="form-group mb-3">
+                                    <label for="gplus">RSS</label>
+                                    <input type="url" class="form-control" id="rss" name="rss" placeholder="RSS"
+                                        value="">
+                                </div>
+                            </div>
+                                <!-- ------------------------------------------------------------------------------------------------------ -->
+                            </div>
+                            
+                            <div class="col-md-6">
+
+                                <div class="form-group mb-3 text-center">
+                                    <label for="Logo" class="mb-3">Logo</label>
+                                    <input type="file" id="Logo" name="fichier" accept="image/*">
+                                    <h4>Nous localiser & accroche</h4>
+                                    <img src="../assets/images/logo.png" alt="Logo" class="mb-3">
+                                </div>
+                                    <div class="form-group mb-3 text-center">
+                                        <app-map></app-map>
+                                        <!-- <label for="gmap">Google Map</label>
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2716.9335206557726!2d2.4123485155170523!3d47.08076727915335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47fa965d58b7a4e3%3A0x1cff701c19937a9f!2s6%20Rue%20Maurice%20Roy%2C%2018000%20Bourges!5e0!3m2!1sfr!2sfr!4v1615726228714!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0" allowfullscreen="" defer></iframe>
+                                        <textarea class="form-control" id="gmap" name="gmap"
+                                            placeholder="Google Map"></textarea> -->
+                                    </div>
+
+                                    <div class="form-group mb-5">
+                                        <label for="accroche">Accroche</label>
+                                        <input type="text" class="form-control" id="accroche" name="accroche"
+                                            placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry." value="" required>
+                                    </div>
+                                    <div class="flex-row-reverse">
+                                    <h4>Référencement</h4>
+
+                                    <div class="form-group mb-3">
+                                        <label for="seo1">Description</label>
+                                        <input type="text" class="form-control" id="seo1" name="seo1"
+                                            placeholder="description de l'entreprise, c'est utile" value="" required>
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="seo2">Mots-clés</label>
+                                        <input type="text" class="form-control" id="seo2" name="seo2"
+                                            placeholder="keyword1, keyword2" value="" required>
+                                    </div>
+
+                                </div>
+                                <div class="clearfix"></div>
+                                <input type="hidden" name="id" value="1" />
+                                <input type="hidden" name="MM_update" value="form1" />
+                                <button type="submit" mat-raised-button color="primary">Valider les modifications</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!--//tabs-inner-->
+                </div>
+                <!--//outer-wp-->
+            </div>
+        </div>
+    </div>
+</div>

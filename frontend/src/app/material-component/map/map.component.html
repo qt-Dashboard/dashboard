@@ -1,0 +1,40 @@
+<div class="map-container" id="map">
+  
+</div>
+
+<select
+  class="ml-1"
+  name="zipcode"
+  [(ngModel)]="category"
+  (ngModelChange)="changeZipcode()"
+>
+  <option>-All-</option>
+  <option *ngFor="let list of artworkList">{{list.category}}</option>
+</select>
+
+
+<!-- <div class="d-flex justify-content-center"> -->
+
+<!-- <select
+  class="ml-1"
+  name="start"
+  [(ngModel)]="name"
+  (ngModelChange)="changeRouting()"
+>
+  <option>start</option>
+  <option *ngFor="let debut of positionMarkers">{{debut.name}}</option>
+</select> -->
+
+<select
+  class="ml-1"
+  name="end"
+  [(ngModel)]="name"
+  (ngModelChange)="changeRouting()"
+>
+  <option>end</option>
+  <option id="remove" *ngFor="let fin of positionMarkers">{{fin.name}}</option>
+</select>
+
+<!-- </div> -->
+
+

@@ -1,0 +1,72 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "mapData": [
+    {
+      "id": 1,
+      "name": "home",
+      "ville": "Evreux",
+      "telephone": "0245558588",
+      "category": "home",
+      "coordinates": [
+        49.02275321906884,
+        1.1517542134257543
+      ],
+      "description": "Coucou",
+      "iconUrl": "./assets/images/map/exhibitions.png",
+      "image": "./assets/images/logo.png"
+    },
+    {
+      "id": 2,
+      "name": "lieu medical",
+      "ville": "Champomi",
+      "telephone": "0245558599",
+      "category": "pharmacie",
+      "coordinates": [
+        45.02275321906884,
+        1.3517542134257543
+      ],
+      "description": "piqure",
+      "iconUrl": "./assets/images/map/exhibitions.png"
+      
+    },
+    {
+      "id": 3,
+      "name": "lieu medical2",
+      "ville": "Chocolaterie",
+      "telephone": "0245558577",
+      "category": "pharmacie",
+      "coordinates": [
+        55.02275321906884,
+        1.3517542134257543
+      ],
+      "description": "piqure",
+      "iconUrl": "./assets/images/map/exhibitions.png"
+      
+    }
+  ],
+  "categories": [
+    {
+      "category": "home"
+    },
+    {
+      "category": "pharmacie"
+    }
+  ]
+
+}

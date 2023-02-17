@@ -42,7 +42,6 @@ export class MapComponent implements OnInit {
   categories: string = 'http://localhost:3000/categories'
 
   ngOnInit() {
-
     if (!navigator.geolocation) {
       console.log('localisation is not supported');
 
@@ -100,6 +99,11 @@ export class MapComponent implements OnInit {
     // this.watchPosition();
 
   }
+
+  ngOnDestroy() {
+    this.map.clearAllEventListeners;
+    this.map.remove();
+  };
 
   watchPosition() {
 
@@ -272,7 +276,7 @@ export class MapComponent implements OnInit {
         // (debut: any) => debut.name == this.name,
         (fin: any) => fin.name == this.name
       );
-      // console.log(currentPosition);
+      console.log(currentPosition);
       // console.log(currentPosition[0].coordinates);
       this.currentPosition = currentPosition[0].coordinates
 

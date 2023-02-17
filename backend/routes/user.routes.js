@@ -13,17 +13,19 @@ const {
     login
 } = require('../controllers/user.controller');
 
-router.post('/register', register);
+const {uploadAvatar} = require('../middlewares/multer.middleware');
+
+router.post('/register', uploadAvatar.single('avatar'), register);
 
 router.get('/', getAllUsers);
 
 router.get('/update/:id', getOneUser);
-router.patch('/update/:id', updateUser);
+router.patch('/update/:id', uploadAvatar.single('avatar'), updateUser);
 
-router.patch('/update-password/:id', updateUserPassword);
+router.patch('/update-password/:id', updateUserPassword); // Not use in front for the moment
 
-router.get('/reset-password/:uniqueString', getReset);
-router.patch('/reset-password/:uniqueString', resetUserPassword);
+router.get('/reset-password/:uniqueString', getReset); // Not use in front for the moment
+router.patch('/reset-password/:uniqueString', resetUserPassword); // Not use in front for the moment
 
 router.post('/login', login);
 

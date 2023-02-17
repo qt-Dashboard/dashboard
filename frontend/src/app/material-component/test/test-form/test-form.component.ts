@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { CategoryTest } from 'src/app/models/categoryTest.model';
+import { CategorySelect } from 'src/app/models/categoryTest.model';
 import { MapService } from 'src/app/services/map.service';
 import { timer } from 'rxjs';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
@@ -15,7 +15,7 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
 export class TestFormComponent implements OnInit {
   isEditMode = false;
 
-  categories: CategoryTest[] = [
+  categories: CategorySelect[] = [
     {value: 'hospitals', viewValue: 'Centres hospitaliers'},
     {value: 'bakeries', viewValue: 'Boulangeries'},
   ];

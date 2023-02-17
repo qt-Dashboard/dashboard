@@ -80,6 +80,7 @@ import { ToolsComponent } from './material-component/tools/tools.component';
 import { TutosAjoutComponent } from './material-component/tutos/tutos-ajout/tutos-ajout.component';
 import { TutosModifComponent } from './material-component/tutos/tutos-modif/tutos-modif.component';
 import { TutosComponent } from './material-component/tutos/tutos.component';
+import { UploadComponent } from './material-component/upload/upload.component';
 import { UsersFormComponent } from './material-component/users/users-form/users-form.component';
 import { UsersComponent } from './material-component/users/users.component';
 import { UtilesComponent } from './material-component/utiles/utiles.component';
@@ -518,7 +519,7 @@ export const AppRoutes: Routes = [
       {
         path: 'annuaire',
         component: AnnuaireComponent
-      }
+      },
     ]
   },
   

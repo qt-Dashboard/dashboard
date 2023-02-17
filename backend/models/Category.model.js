@@ -10,10 +10,6 @@ const categorySchema = new mongoose.Schema({
         default: 'marker-icon.png',
         required: true,
     },
-    variable: {
-        type: String,
-        required: true,
-    }
 }, {
     timestamps: true,
 });

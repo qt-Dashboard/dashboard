@@ -5,11 +5,11 @@
                 <span *ngIf="!isEditMode">Ajouter une catégorie</span>
                 <span *ngIf="isEditMode">Editer une catégorie</span>
                 <span class="button-spacer"></span>
-                <button mat-raised-button *ngIf="isEditMode" color="accent" class="form-button" aria-label="Edit category" (click)="onSubmit()">
-                    Modifier <mat-icon>update</mat-icon>
-                </button>
                 <button mat-raised-button *ngIf="!isEditMode" color="accent" class="form-button" aria-label="Add category" (click)="onSubmit()">
                     Créer<mat-icon>plus_one</mat-icon> 
+                </button>
+                <button mat-raised-button *ngIf="isEditMode" color="accent" class="form-button" aria-label="Edit category" (click)="onSubmit()">
+                    Modifier <mat-icon>update</mat-icon>
                 </button>
                 <button mat-raised-button color="accent" class="form-button" aria-label="Go back" (click)="onCancel()">
                     <mat-icon>undo</mat-icon>
@@ -18,25 +18,32 @@
         </div>
     </div>
 </mat-card>
+
 <div class="container grid mb-5">
     <div class="col-12">
-        <form [formGroup]="form" class="form">
-            <mat-form-field appearance="fill">
+        <form [formGroup]="form">
+            <mat-form-field appearance="fill" class="form-group">
                 <mat-label>Nom</mat-label>
-                <input matInput type="text" formControlName="name" name="name" placeholder="Ex: Boulangerie" required>
+                <input matInput type="text" formControlName="name" placeholder="Ex: Boulangerie" required>
             </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Nom de la variable</mat-label>
-                <input matInput type="text" formControlName="variable" name="variable" placeholder="Ex. bakery (en minuscule et en camelCase)" required>
-            </mat-form-field>
+            <!-- File Input -->
             <div class="d-flex">
                 <mat-label class="label-input-file">Choix du marqueur * :</mat-label>
-                <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+                <input type="file" name="icon" class="file-input" (change)="uploadFile($event)" #fileUpload>
                 <div class="file-upload">
-                    {{fileName || "Aucune image sélectionnée."}}
                     <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
                         <mat-icon>attach_file</mat-icon>
                     </button>
+                </div>
+                <!-- Image Preview -->
+                <div class="preview ms-4" *ngIf="preview && preview !== null">
+                    <img [src]="preview" [alt]="form.value.name">
+                </div>
+            </div>
+            <!-- Progress Bar -->
+            <div class="progress form-group mt-3" *ngIf="percentDone">
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                    [style.width.%]="percentDone">
                 </div>
             </div>
         </form>

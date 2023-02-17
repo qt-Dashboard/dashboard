@@ -26,11 +26,11 @@ export class MarkerFormComponent implements OnInit {
 
   category = this.categoriesService.getCategories().subscribe((categories: any) => {
     categories.forEach((cat:any) => {
-      categories = [{variable: cat.variable, name: cat.name, _id: cat._id}]
+      categories = [{_id: cat._id, name: cat.name}]
       this.addCategory = this.categories.push({
-        variable: cat.variable,
+        _id: cat._id,
         name: cat.name,
-        _id: cat._id
+        icon: cat.icon
       })
     })
   });

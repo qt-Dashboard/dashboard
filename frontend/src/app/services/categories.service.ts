@@ -18,16 +18,28 @@ export class CategoriesService {
     return categories;
   }
 
-  getCategory(categoryId: string): Observable<Category> {
-    return this.http.get<Category>(`${this.apiURLCategories}/update/${categoryId}`);
+  getCategory(categoryId: string): Observable<any> {
+    return this.http.get<any>(`${this.apiURLCategories}/update/${categoryId}`);
   }
 
-  createCategory(category: Category): Observable<Category> {        
-    return this.http.post<Category>(`${this.apiURLCategories}/create`, category);
+  createCategory(name: string, icon: File): Observable<any> {
+    let formData: FormData = new FormData();
+    formData.append('name', name);
+    formData.append('icon', icon);           
+    return this.http.post<any>(`${this.apiURLCategories}/create`, formData, {
+      reportProgress: true,
+      observe: 'events',
+    });
   }
 
-  updateCategory(category: Category): Observable<Category> {
-    return this.http.patch<Category>(`${this.apiURLCategories}/update/${category._id}`, category);
+  updateCategory(name: string, icon: File, id: string): Observable<any> {
+    let formData: FormData = new FormData();  
+    formData.set('name', name);
+    formData.set('icon', icon);
+    return this.http.patch<any>(`${this.apiURLCategories}/update/${id}`, formData, {
+      reportProgress: true,
+      observe: 'events',
+    });
   }
 
   deleteCategory(categoryId: string): Observable<any> {

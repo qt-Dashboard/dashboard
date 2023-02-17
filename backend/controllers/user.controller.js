@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const userController = {};
 
 const bcrypt = require('bcrypt');
@@ -13,13 +15,13 @@ userController.register = async (req, res) => {
         } else {
             const {firstName, lastName, password, role} = req.body;
             const email = req.body.email.toLowerCase();
-            const img = req?.file?.filename;
+            const avatar = req?.file?.filename;
             const newUser = new User({
                 firstName: firstName,
                 lastName: lastName,
                 email: email,
                 password: password,
-                img: img,
+                avatar: avatar,
                 role: role,
             });
             await newUser.save();
@@ -66,15 +68,33 @@ userController.updateUser = async (req, res) => {
         if (!user) {
             return res.status(400).json({message: `L'utilisateur n'existe pas !`});
         } else {
+            // Delete the previous user's avatar
+            const directoryPath = '../frontend/src/assets/images/users/'; // Repertory of the avatar
+            const avatarName = user.avatar;
+            if (user.avatar != 'default.jpg') {
+                fs.unlink(directoryPath + avatarName, (err) => {
+                    if (err) {
+                        console.log(err)
+                    }
+                });
+            }
             const {firstName, lastName} = req.body;
             const email = req.body.email.toLowerCase();
-            const img = req?.file?.filename;
-            await user.updateOne({
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                img: img,
-            });
+            if (!req.file) {
+                await user.updateOne({
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email
+                })
+            } else {
+                const avatar = req.file.filename;
+                await user.updateOne({
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    avatar: avatar,
+                });
+            }
             res.status(200).json({message: `L'utilisateur a bien été mis à jour !`})
         }
     }
@@ -161,7 +181,8 @@ userController.login = async (req, res) => {
             email: user.email,
             firstName: user.firstName,
             lastName: user.lastName,
-            role: user.role
+            role: user.role,
+            avatar: user.avatar
         };
 
         const token = jwt.sign(payload, process.env.TOKEN, {expiresIn: '2hours'});
@@ -171,7 +192,8 @@ userController.login = async (req, res) => {
                 userId: user._id,
                 lastName: user.lastName,
                 firstName: user.firstName,
-                role: user.role
+                role: user.role,
+                avatar: user.avatar
             }
         });
     }
@@ -186,8 +208,17 @@ userController.deleteUser = async (req, res) => {
         if (!user) {
             return res.status(400).jsons({message: `L'utilisateur n'existe pas !`});
         } else {
-            user.remove();
-            res.status(200).json({message: `L'utilisateur a bien été supprimé !`})
+            const directoryPath = '../frontend/src/assets/images/users/'; // Repertory of the avatar
+            const avatarName = user.avatar;
+            if (user.avatar != 'default.jpg') {
+                fs.unlink(directoryPath + avatarName, (err) => {
+                    if (err) {
+                        console.log(err)
+                    }
+                });
+            }
+            await user.remove();
+            res.status(200).json({message: `L'utilisateur' a bien été supprimé !`})
         }
 
     }catch (err) {

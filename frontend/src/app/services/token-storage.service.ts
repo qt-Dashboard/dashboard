@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
 const ROLE_KEY = 'auth-role';
+const AVATAR_KEY = 'auth-avatar';
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +44,15 @@ export class TokenStorageService {
     if (user) {
       return JSON.parse(user);
     }
+  }
+
+  public saveAvatar(avatar: string): void {
+    window.sessionStorage.removeItem(AVATAR_KEY);
+    window.sessionStorage.setItem(AVATAR_KEY, avatar);
+  }
+
+  public getAvatar(): string | null {
+    return window.sessionStorage.getItem(AVATAR_KEY);
   }
 }
 

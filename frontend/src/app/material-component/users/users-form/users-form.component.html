@@ -20,7 +20,7 @@
 </mat-card>
 <div class="container text-center grid mb-5">
     <div class="col-12">
-        <form [formGroup]="form" class="form">
+        <form [formGroup]="form">
             <mat-form-field appearance="fill">
                 <mat-label>Prénom</mat-label>
                 <input matInput type="text" formControlName="firstName" name="firstName" placeholder="Ex. Alain" required>
@@ -47,7 +47,26 @@
                     <input matInput type="password" formControlName="password" name="password" required>
                 </mat-form-field>
             </div>
-            
+            <!-- File Input -->
+            <div class="d-flex">
+                <mat-label class="label-input-file">Avatar * :</mat-label>
+                <input type="file" name="icon" class="file-input" (change)="uploadFile($event)" #fileUpload>
+                <div class="file-upload">
+                    <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
+                        <mat-icon>attach_file</mat-icon>
+                    </button>
+                </div>
+                <!-- Image Preview -->
+                <div class="preview ms-4" *ngIf="preview && preview !== null">
+                    <img [src]="preview" [alt]="form.value.name">
+                </div>      
+            </div>
+             <!-- Progress Bar -->
+             <div class="progress form-group mt-3" *ngIf="percentDone">
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                    [style.width.%]="percentDone">
+                </div>
+            </div>
         </form>
     </div>
 </div>

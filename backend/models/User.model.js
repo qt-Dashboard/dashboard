@@ -22,8 +22,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    img: {
+    avatar: {
         type: String,
+        default: 'default.jpg',
+        required: true,
     },
 }, {
     timestamps: true,

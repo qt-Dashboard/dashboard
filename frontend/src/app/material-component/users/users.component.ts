@@ -42,12 +42,21 @@ export class UsersComponent implements OnInit {
     dialogRef.afterClosed().subscribe((confirmed: boolean) => {
       if (confirmed) {
         this.usersService.deleteUser(userId).subscribe({
-          next: () => this.getUsers()
-        }),
-        this.snackBar.open("Vous avez bien supprimé l'utisateur", '', {
-          horizontalPosition: this.horizontalPosition,
-          verticalPosition: this.verticalPosition,
+          next: () => {
+            this.snackBar.open("Vous avez bien supprimé l'utisateur", '', {
+              horizontalPosition: this.horizontalPosition,
+              verticalPosition: this.verticalPosition,
+            });
+            this.getUsers();
+          },
+          error: () => {
+            this.snackBar.open("ERREUR : l'utilisateur n'a pas pu être supprimé !", '', {
+              horizontalPosition: this.horizontalPosition,
+              verticalPosition: this.verticalPosition,
+            });
+          }
         });
+        
       }
     });
   }

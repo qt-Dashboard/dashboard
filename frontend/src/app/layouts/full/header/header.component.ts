@@ -24,7 +24,8 @@ export class AppHeaderComponent {
   isAdmin: boolean = false;
   isModerator: boolean = false;
   user: any = {};
-  role!: string | null; 
+  role: string | null = '';
+  avatar: string | null = '';
 
   constructor (
     private authService: AuthService,
@@ -42,7 +43,8 @@ export class AppHeaderComponent {
       if (this.role === 'moderator') {
         this.isModerator = true;
       }
-      this.user = this.tokenStorage.getUser();            
+      this.user = this.tokenStorage.getUser();
+      this.avatar = this.tokenStorage.getAvatar();            
     }
   }
 
@@ -54,6 +56,7 @@ export class AppHeaderComponent {
         this.tokenStorage.saveToken(data.message.token);
         this.tokenStorage.saveUser(fullname);
         this.tokenStorage.saveRole(data.message.role);
+        this.tokenStorage.saveAvatar(data.message.avatar);
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         window.location.reload();

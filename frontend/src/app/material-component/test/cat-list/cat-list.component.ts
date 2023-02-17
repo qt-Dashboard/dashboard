@@ -15,7 +15,7 @@ import { Location } from '@angular/common';
 })
 export class CatListComponent implements OnInit {
   categories: Category[] = [];
-  displayedColumns: string[] = ['id', 'name', 'variable', 'icon', 'iconUpd', 'iconDel']; 
+  displayedColumns: string[] = ['id', 'name', 'icon', 'iconUpd', 'iconDel']; 
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
@@ -42,11 +42,19 @@ export class CatListComponent implements OnInit {
     dialogRef.afterClosed().subscribe((confirmed: boolean) => {
       if (confirmed) {
         this.categoriesService.deleteCategory(categoryId).subscribe({
-          next: () => this.getCategories()
-        }),
-        this.snackBar.open("Vous avez bien supprimé la catégorie", '', {
-          horizontalPosition: this.horizontalPosition,
-          verticalPosition: this.verticalPosition,
+          next: () => {
+            this.snackBar.open("Vous avez bien supprimé la catégorie", '', {
+              horizontalPosition: this.horizontalPosition,
+              verticalPosition: this.verticalPosition,
+            });
+            this.getCategories();
+          },
+          error: () => {
+            this.snackBar.open("ERREUR : La catégorie n'a pas pu être supprimée", '', {
+              horizontalPosition: this.horizontalPosition,
+              verticalPosition: this.verticalPosition,
+            });
+          }
         });
       }
     });
@@ -80,10 +88,8 @@ export class CatListComponent implements OnInit {
           return compare(a._id, b._id, isAsc);
         case 'name':
           return compare(a.name.toLowerCase(), b.name.toLowerCase(), isAsc);
-        case 'variable':
-          return compare(a.variable.toLowerCase(), b.variable.toLowerCase(), isAsc);
         case 'icon':
-          return compare(a.icon?.toLowerCase(), b.icon?.toLowerCase(), isAsc);
+          return compare(a.icon?.type.toLowerCase(), b.icon?.type.toLowerCase(), isAsc);
         default:
           return 0;
       }

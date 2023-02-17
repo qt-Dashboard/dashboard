@@ -1,6 +1,9 @@
+const fs = require('fs');
+
 const categoryController = {};
 
 const Category = require('../models/Category.model');
+const Marker = require('../models/Marker.model');
 
 categoryController.createCategory = async (req, res) => {
     try {
@@ -8,16 +11,11 @@ categoryController.createCategory = async (req, res) => {
         if (searchCategory) {
             return res.status(400).json({message: `La catégorie ${searchCategory.name} existe déjà !`});
         } 
-        const searchVariable = await Category.findOne({variable: req.body.variable});
-        if (searchVariable) {
-            return res.status(400).json({message: `La variable ${searchVariable.variable} existe déjà !`});
-        } 
         else {
-            const {name, variable} = req.body;
+            const {name} = req.body;
             const icon = req?.file?.filename;
             const newCategory = new Category({
                 name: name,
-                variable: variable,
                 icon: icon,
             });
             await newCategory.save();
@@ -64,13 +62,28 @@ categoryController.updateCategory = async (req, res) => {
         if (!category) {
             return res.status(400).json({message: `La catégorie n'existe pas !`});
         } else {
-            const {name, variable} = req.body;
-            const icon = req?.file?.filename;
-            await category.updateOne({
-                name: name,
-                variable: variable,
-                icon: icon,
-            });
+            // Delete the previous icon marker
+            const directoryPath = '../frontend/src/assets/icons/'; // Repertory of the icons markers
+            const iconMarker = category.icon;
+            if (category.icon != 'marker-icon.png') {
+                fs.unlink(directoryPath + iconMarker, (err) => {
+                    if (err) {
+                        console.log(err)
+                    }
+                });
+            }
+            const {name} = req.body;
+            if (!req.file) {
+                await category.updateOne({
+                    name: name
+                }); 
+            } else {
+                const icon = req.file.filename;
+                await category.updateOne({
+                    name: name,
+                    icon: icon,
+                });
+            }
             res.status(200).json({message: `La catégorie a bien été mise à jour !`})
         }
     }
@@ -85,11 +98,21 @@ categoryController.deleteCategory = async (req, res) => {
         if (!category) {
             return res.status(400).jsons({message: `La catégorie n'existe pas !`});
         } else {
-            category.remove();
+            const directoryPath = '../frontend/src/assets/images/icons/'; // Repertory of the icons markers
+            const iconMarker = category.icon;
+            if (category.icon != 'marker-icon.png') {
+                fs.unlink(directoryPath + iconMarker, (err) => {
+                    if (err) {
+                        console.log(err)
+                    }
+                });
+            }
+            await Marker.deleteMany({categoryId: req.params.id});
+            await category.remove();
             res.status(200).json({message: `La catégorie a bien été supprimée !`})
         }
-
-    }catch (err) {
+    }
+    catch (err) {
         return res.status(500).json({message: err.message})
     }
 }

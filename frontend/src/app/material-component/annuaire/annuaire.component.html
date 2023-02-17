@@ -1,41 +1,48 @@
 <div class="container text-center grid">
+    <div id="map" style="height:40vh; width: 100%;"></div>
+    <div class="col-12 mt-5">
 
-    <div class="col-12">
-        
         <h4>Liste des points d'intérêt</h4>
 
-            <table mat-table [dataSource]="pointOfInterest" matSort matSortDisableClear (matSortChange)="sortData($event)" class="mat-elevation-z8" >
-                <!-- Id Column -->
-                <ng-container matColumnDef="id">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-                    <td mat-cell *matCellDef="let pointOfInterest"> {{pointOfInterest.id}} </td>
-                </ng-container>
+        <table mat-table [dataSource]="pointOfInterest" matSort matSortDisableClear (matSortChange)="sortData($event)"
+            class="mat-elevation-z8">
+            <!-- Id Column -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                <td mat-cell *matCellDef="let pointOfInterest"> {{pointOfInterest.id}} </td>
+            </ng-container>
 
-                <ng-container matColumnDef="name">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
-                    <td mat-cell *matCellDef="let pointOfInterest"> {{pointOfInterest.name}} </td>
-                </ng-container>
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
+                <td mat-cell *matCellDef="let pointOfInterest"> {{pointOfInterest.name}} </td>
+            </ng-container>
 
-                <!-- Prenom Column -->
-                <ng-container matColumnDef="ville">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Ville </th>
-                    <td mat-cell *matCellDef="let pointOfInterest"> {{pointOfInterest.ville}} </td>
-                </ng-container>
+            <!-- Prenom Column -->
+            <ng-container matColumnDef="ville">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Ville </th>
+                <td mat-cell *matCellDef="let pointOfInterest"> {{pointOfInterest.ville}} </td>
+            </ng-container>
 
-                <!-- Nom Column -->
-                <ng-container matColumnDef="telephone">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Telephone </th>
-                    <td mat-cell *matCellDef="let pointOfInterest"> {{pointOfInterest.telephone}} </td>
-                </ng-container>
+            <!-- Nom Column -->
+            <ng-container matColumnDef="telephone">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Telephone </th>
+                <td mat-cell *matCellDef="let pointOfInterest"> {{pointOfInterest.telephone}} </td>
+            </ng-container>
 
-                <!-- <ng-container matColumnDef="iconUpd">
-                    <th mat-header-cell *matHeaderCellDef class="nobg"></th>
-                    <td mat-cell *matCellDef="let user" (click)="updateUser(user._id)">
-                        <mat-icon color="accent" class="icon-link">create</mat-icon>
-                    </td>
-                </ng-container>
+            <ng-container matColumnDef="coordinate">
 
-                <ng-container matColumnDef="iconDel">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> coordinates </th>
+                
+                <td mat-cell *matCellDef="let pointOfInterest">
+                 <select name="select" [(ngModel)]="coordinates" (ngModelChange)="changeMarkers()" class="ml-1 text-center">   
+                        <option>All</option>
+                    <option value="{{pointOfInterest.coordinates}}">Point de repère</option>
+                    <!-- <mat-icon color="accent" class="icon-link test">room</mat-icon> -->
+                    </select></td>
+            </ng-container>
+
+
+            <!-- <ng-container matColumnDef="iconDel">
                     <th mat-header-cell *matHeaderCellDef class="nobg"></th>
                     <td mat-cell *matCellDef="let user">
                         <span (click)="openDialog(user._id)">
@@ -44,11 +51,12 @@
                     </td>
                 </ng-container> -->
 
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-
-</div>
-</div>
-
-    <div class="map-container" id="map"></div>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+    </div>
+</div>            
+        <!-- <select class="ml-1" name="select" [(ngModel)]="coordinates" (ngModelChange)="changeMarkers()">
+            <option>All</option>
+            <option id="remove" *ngFor="let fin of positionMarkers">{{fin.coordinates}}</option>
+        </select> -->

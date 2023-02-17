@@ -276,7 +276,7 @@ export class MapComponent implements OnInit {
         // (debut: any) => debut.name == this.name,
         (fin: any) => fin.name == this.name
       );
-      // console.log(currentPosition);
+      console.log(currentPosition);
       // console.log(currentPosition[0].coordinates);
       this.currentPosition = currentPosition[0].coordinates
 

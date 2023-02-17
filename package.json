@@ -1,4 +1,14 @@
 {
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "backend/node index.js"
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "@project-osrm/osrm": "^5.27.0",
     "leaflet-control-geocoder": "^2.4.0",

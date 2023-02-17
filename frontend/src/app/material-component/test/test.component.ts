@@ -69,18 +69,31 @@ export class TestComponent implements OnInit {
           });
           const categoryName = data[i].categoryId.name;
           const marker = L.marker([data[i].lon, data[i].lat]).setIcon(icon).bindPopup(data[i].name).addTo(this.map);
+          let restaurants = L.layerGroup();
+          if (categoryName === 'Restaurants') {
+            restaurants = L.layerGroup([marker]);
+            console.log(restaurants);
+          } else if (categoryName === 'azerty') {
+            const azerty = L.layerGroup([marker]);
+            console.log(azerty);
+          } else {
+            console.log('no');
+          } 
+
+          console.log(restaurants);
           
-          switch (true) {
-            case categoryName === 'Restaurants':
-              const group = L.layerGroup([marker]);
-              console.log(group);
-              break;
+
+          // switch (true) {
+          //   case categoryName === 'Restaurants':
+          //     const group = L.layerGroup([marker]);
+          //     console.log(group);
+          //     break;
           
-            default:
-              console.log('no');
+          //   default:
+          //     console.log('no');
               
-              break;      
-          }
+          //     break;      
+          // }
 
           // var lg = L.layerGroup().addTo(this.map)
           // layergroups[type] = lg;
